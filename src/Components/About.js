@@ -1,5 +1,6 @@
 import React from "react";
-import Doctor from "../Assets/doctor-group.png";
+
+import Sale from "../Assets/sale.jpg";
 
 import "../Styles/About.css";
 import { allData } from "../Scripts/data";
@@ -9,7 +10,7 @@ function About() {
   return (
     <div className="about-section " id="about">
       <div className="about-image-content ">
-        <img src={Doctor} alt="Doctor Group" className="about-image1" />
+        <img src={Sale} alt="Doctor Group" className="about-image1" />
       </div>
 
       <div className="about-text-content ">
