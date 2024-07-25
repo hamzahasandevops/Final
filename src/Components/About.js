@@ -57,6 +57,7 @@ function About() {
                       />
                       <div className="card-body">
                         <h5 className="card-title">{d.title}</h5>
+                        {d.ml[0]}ml
                       </div>
                       <div
                         className="card-body  "

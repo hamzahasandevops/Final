@@ -8,6 +8,8 @@ export const allData = [
     old_mrp: "166",
     quantity: 1,
     new_mrp: "158",
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const allData = [
     old_mrp: "170",
     new_mrp: "163",
     quantity: 1,
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ export const allData = [
     old_mrp: "175",
     new_mrp: "166",
     quantity: 1,
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ export const allData = [
     old_mrp: "175",
     new_mrp: "166",
     quantity: 1,
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ export const allData = [
     old_mrp: "175",
     new_mrp: "166",
     quantity: 1,
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
   {
     id: 6,
@@ -58,6 +68,8 @@ export const allData = [
     old_mrp: "131",
     new_mrp: "118",
     quantity: 1,
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
   {
     id: 7,
@@ -68,5 +80,7 @@ export const allData = [
     old_mrp: "175",
     new_mrp: "166",
     quantity: 1,
+    Discount: 10,
+    ml: [20, 30, 100, 1000],
   },
 ];

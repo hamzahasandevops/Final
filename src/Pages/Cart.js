@@ -37,6 +37,7 @@ export default function Cart() {
                 <tr>
                   <th>Products</th>
                   <th>Name</th>
+                  <th>ml</th>
                   <th>Mrp</th>
                   <th>Discount</th>
                   <th>Quantity</th>
@@ -50,10 +51,15 @@ export default function Cart() {
                   <td>
                     <p>{c.title}</p>
                   </td>
-                  <td>₹{c.new_mrp}</td>
+                  <td>
+                    <p>{c.ml[0]}</p>
+                  </td>
                   <td>
                     <del>₹{c.old_mrp}</del>
+
+                    <ins className="text-decoration-none"> ₹{c.new_mrp}</ins>
                   </td>
+                  <td>{c.Discount}%</td>
                   <td style={{ padding: "10px" }}>
                     <div className="d-flex flex-column">
                       <div>
@@ -96,7 +102,7 @@ export default function Cart() {
         })}
         <div className="container d-flex p-5 justify-content-between">
           <p>Total Items: {totalItem(cart)}</p>
-          <p>Total price: ₹{totalPrice(cart)}</p>
+          <p>Total price: ₹ {totalPrice(cart)}</p>
           <button className="btn btn-primary">checkout</button>
         </div>
       </div>

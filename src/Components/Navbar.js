@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-// import Box from "@mui/material/Box";
-// import Avatar from "@mui/material/Avatar";
-// import Menu from "@mui/material/Menu";
-// import MenuItem from "@mui/material/MenuItem";
-// import ListItemIcon from "@mui/material/ListItemIcon";
-// import Divider from "@mui/material/Divider";
-// import IconButton from "@mui/material/IconButton";
-// import Typography from "@mui/material/Typography";
-// import Tooltip from "@mui/material/Tooltip";
-// import PersonAdd from "@mui/icons-material/PersonAdd";
-// import Settings from "@mui/icons-material/Settings";
-// import Logout from "@mui/icons-material/Logout";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
@@ -157,9 +146,30 @@ function Navbar() {
             </a>
           </li>
           <li>
+            <Profile />
+          </li>
+          <li>
             <a onClick={openNav} href="#contact">
               Contact
             </a>
+          </li>
+          <li>
+            <Link to="/cart">
+              <Tooltip
+                title={
+                  cart.length < 1 ? (
+                    <h3 className="cart px-3">Cart is empty</h3>
+                  ) : (
+                    ""
+                  )
+                }
+              >
+                <IconButton>
+                  <ShoppingCartIcon />
+                </IconButton>
+              </Tooltip>
+            </Link>
+            {cart.length}
           </li>
         </ul>
       </div>
