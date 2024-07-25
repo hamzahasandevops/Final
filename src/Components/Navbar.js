@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+// import Box from "@mui/material/Box";
+// import Avatar from "@mui/material/Avatar";
+// import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
+// import ListItemIcon from "@mui/material/ListItemIcon";
+// import Divider from "@mui/material/Divider";
+// import IconButton from "@mui/material/IconButton";
+// import Typography from "@mui/material/Typography";
+// import Tooltip from "@mui/material/Tooltip";
+// import PersonAdd from "@mui/icons-material/PersonAdd";
+// import Settings from "@mui/icons-material/Settings";
+// import Logout from "@mui/icons-material/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   faCommentDots,
   faBars,
@@ -21,10 +22,15 @@ import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Profile from "./Profile";
+import { IconButton, Tooltip } from "@mui/material";
+import { CartContext } from "./Features/ContextProvider";
+import { useContext } from "react";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+  const { cart } = useContext(CartContext);
 
   const openNav = () => {
     setNav(!nav);
@@ -82,11 +88,30 @@ function Navbar() {
         </li>
         <li>
           <a href="#doctors" className="navbar-links">
-            Doctors
+            Feature Brand
           </a>
         </li>
         <li>
           <Profile />
+        </li>
+
+        <li>
+          <Link to="/cart">
+            <Tooltip
+              title={
+                cart.length < 1 ? (
+                  <h3 className="cart px-3">Cart is empty</h3>
+                ) : (
+                  ""
+                )
+              }
+            >
+              <IconButton>
+                <ShoppingCartIcon />
+              </IconButton>
+            </Tooltip>
+          </Link>
+          {cart.length}
         </li>
       </ul>
 
@@ -118,7 +143,7 @@ function Navbar() {
           </li>
           <li>
             <a onClick={openNav} href="#about">
-              About
+              Deal of The Day
             </a>
           </li>
           <li>
@@ -128,7 +153,7 @@ function Navbar() {
           </li>
           <li>
             <a onClick={openNav} href="#doctors">
-              Doctors
+              Feature Brand
             </a>
           </li>
           <li>

@@ -10,12 +10,13 @@ function Footer() {
         <div className="ft-info">
           <div className="ft-info-p1">
             <p className="ft-title">
-              Health <span className="ft-sign">+</span>
+              MedicineCare <span className="ft-sign">+</span>
             </p>
             <p className="ft-description">
-              Talk to online doctors and get medical advice, online
-              prescriptions, refills and medical notes within minutes. On-demand
-              healthcare services at your fingertips.
+              Medicine Care offers affordable, high-quality medicines. We make
+              it simple for you to take good care of your health and for your
+              loved ones, no matter where they may be located in India. From any
+              location in india. You can send and buy medicine online.
             </p>
           </div>
 

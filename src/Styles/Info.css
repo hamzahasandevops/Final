@@ -1,4 +1,6 @@
+
 .info-section {
+
     padding: 0 32px;
     text-align: center;
     background-color: white;
@@ -14,6 +16,8 @@
 .info-title > span {
     position: relative;
 }
+
+
 .info-title span::before {
     content: '';
     position: absolute;

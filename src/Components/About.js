@@ -1,12 +1,11 @@
 import React from "react";
-
 import Sale from "../Assets/sale.jpg";
-
 import "../Styles/About.css";
 import { allData } from "../Scripts/data";
-
+import { CartContext } from "./Features/ContextProvider";
+import { useContext } from "react";
 function About() {
-  console.log(allData);
+  const { dispatch } = useContext(CartContext);
   return (
     <div className="about-section " id="about">
       <div className="about-image-content ">
@@ -22,9 +21,9 @@ function About() {
         </h3>
         <p className="about-description">
           Welcome to Health Plus, your trusted partner for accessible and
-          personalized healthcare. Our expert doctors offer online consultations
-          and specialized services, prioritizing your well-being. Join us on
-          this journey towards a healthier you.
+          personalized health medicines. Our expert doctors offers online
+          consultations, medicines and specialized services, prioritizing your
+          well-being. Join us on this journey towards a healthier you.
         </p>
         <div style={{ display: "flex", overflowX: "scroll" }}>
           {allData &&
@@ -43,6 +42,7 @@ function About() {
                         flexDirection: "column",
                         // alignItems: "center",
                         justifyContent: "center",
+                        overflowX: "scroll",
                       }}
                     >
                       <button className="btn btn-primary w-50 m-2">
@@ -68,7 +68,10 @@ function About() {
                         <del>MRP ${d.old_mrp}</del>
                         <ins>${d.new_mrp}</ins>
                       </div>
-                      <button className="btn btn-primary w-75">
+                      <button
+                        className="btn btn-primary w-75"
+                        onClick={() => dispatch({ type: "ADD", d: d })}
+                      >
                         ADD TO CART
                       </button>
                     </div>

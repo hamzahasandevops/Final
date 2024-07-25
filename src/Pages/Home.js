@@ -7,6 +7,7 @@ import BookAppointment from "../Components/BookAppointment";
 import Reviews from "../Components/Reviews";
 import Doctors from "../Components/Doctors";
 import Footer from "../Components/Footer";
+import TrendMed from "../Components/TrendMed";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <Hero />
       <Info />
       <About />
+      <TrendMed />
       <BookAppointment />
       <Reviews />
       <Doctors />

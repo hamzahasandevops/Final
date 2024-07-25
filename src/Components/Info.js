@@ -14,7 +14,7 @@ function Info() {
     <div className="info-section" id="services">
       <div className="info-title-content">
         <h3 className="info-title">
-          <span>What We Do</span>
+          <span>Shop By Health Concern</span>
         </h3>
         <p className="info-description">
           We bring healthcare to your convenience, offering a comprehensive
@@ -24,8 +24,6 @@ function Info() {
           whenever you require them.
         </p>
       </div>
-
-      <h2 className="problems">Have problems related to this. click on it</h2>
 
       <div className="info-cards-content">
         <InformationCard title="Cardiac Care" icon={faHeartPulse} />

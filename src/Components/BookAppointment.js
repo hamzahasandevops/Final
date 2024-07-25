@@ -4,6 +4,8 @@ import Help from "../Assets/help.png";
 import Cash from "../Assets/cash.png";
 import Return from "../Assets/return.png";
 import Secure from "../Assets/secure.png";
+import HealthExpert from "../Assets/health-expert-list.jpg";
+
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import {
 //   faCircleCheck,
@@ -43,12 +45,10 @@ function BookAppointment() {
     },
   ];
 
-  console.log(data);
-
   return (
     <div className="ba-section">
       <div className="ba-image-content">
-        <img src={Doctor} alt="Doctor Group" className="ba-image1 " />
+        <img src={HealthExpert} alt="health expert" className="ba-image1 " />
       </div>
 
       <div className="ba-text-content">
@@ -63,17 +63,24 @@ function BookAppointment() {
         </p>
 
         <div className="d-flex justify-content-center align-items-center flex-row">
-          {data.map((d) => {
-            return (
-              <Grid container spacing={2}>
-                <Grid item sm={6} lg={6} xs={12} sx={{}}>
-                  <img src={d.icon} />
+          <Grid container spacing={2}>
+            {data.map((d) => {
+              return (
+                <Grid item sm={6} lg={6} xs={6} sx={{}}>
+                  <div
+                    style={{
+                      position: "relative",
+                      left: "50px",
+                    }}
+                  >
+                    <img src={d.icon} />
+                  </div>
                   <h3>{d.title}</h3>
                   <h4>{d.title_hover}</h4>
                 </Grid>
-              </Grid>
-            );
-          })}
+              );
+            })}
+          </Grid>
         </div>
         {/* <img src={Help} height="100px" width="100px" /> */}
         {/* <button

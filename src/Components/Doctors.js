@@ -1,9 +1,10 @@
 import React from "react";
 import DoctorCard from "./DoctorCard";
-import profile1 from "../Assets/profile-1.png";
-import profile2 from "../Assets/profile-2.png";
-import profile3 from "../Assets/profile-3.png";
-import profile4 from "../Assets/profile-4.png";
+import profile1 from "../Assets/backsons1.webp";
+import profile2 from "../Assets/willmar-2.webp";
+import profile3 from "../Assets/medisynth1-3.webp";
+import profile4 from "../Assets/sbl1-4.webp";
+import profile5 from "../Assets/sachwabe1-5.webp";
 import "../Styles/Doctors.css";
 
 function Doctors() {
@@ -11,7 +12,7 @@ function Doctors() {
     <div className="doctor-section" id="doctors">
       <div className="dt-title-content">
         <h3 className="dt-title">
-          <span>Meet Our Doctors</span>
+          <span>Feature Brand</span>
         </h3>
 
         <p className="dt-description">
@@ -46,6 +47,13 @@ function Doctors() {
         />
         <DoctorCard
           img={profile4}
+          name="Dr. Albert Flores"
+          title="Hematologists"
+          stars="4.8"
+          reviews="500"
+        />
+        <DoctorCard
+          img={profile5}
           name="Dr. Albert Flores"
           title="Hematologists"
           stars="4.8"

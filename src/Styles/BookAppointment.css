@@ -13,9 +13,18 @@
     text-align: center;
 }
 .ba-image1 {
-    width: 60%;
-    height: auto;
+width: 80%;
+border-radius: 10px;
+    height: 500px;
+    transition: 0.2s linear;
 }
+
+.ba-image1:hover{
+width: 83%;
+    
+    height: 520px;
+}
+
 /* Text */
 .ba-text-content {
     width: 50%;
