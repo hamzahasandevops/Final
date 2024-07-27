@@ -38,7 +38,7 @@ function Hero() {
 
   const techData = [
     {
-      id: 1,
+      id: 8,
       title: "Garcinia Cobogia Drop",
       old_mrp: 150,
       Discount: 10,
@@ -50,19 +50,19 @@ function Hero() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 2,
+      id: 9,
       title: "Spondin",
       old_mrp: 150,
       Discount: 10,
       images:
         "https://www.medicinecare.in/assets/images/product/Spondin_Drops1.jpg",
       new_mrp: 120,
-      desc: "Spondin Drop is one of the most effective Homeopathic Medicine for cervical spondylitis. As you seek the most faithful homeopathic medicine for neck pain, look no further than this particular fluid. It's well known to work fast and renowned for its eff",
+      desc: "Spondin Drop is one of the most effective Homeopathic Medicine for cervical spondylitis. As you seek the most faithful homeopathic medicine for neck pain, look no further than this particular fluid. It's well known to work fast and renowned for its eff ",
       quantity: 1,
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 3,
+      id: 10,
       title: "Kidcough",
       old_mrp: 150,
       Discount: 10,
@@ -74,7 +74,7 @@ function Hero() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 4,
+      id: 11,
       title: "Paracetamol",
       old_mrp: 150,
       Discount: 10,
@@ -86,18 +86,20 @@ function Hero() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 5,
+      id: 12,
       title: "Alfalfa",
       old_mrp: 150,
+      ml: 20,
       Discount: 10,
       images:
         "https://img.freepik.com/free-photo/3d-rendering-personal-care-products-fondant-pink_23-2151053864.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_user",
       new_mrp: 120,
       desc: "Talk to online doctors and get medical advice, online prescriptions, refills and medical notes within minutes. On-demand healthcare services at your fingertips.",
       quantity: 1,
+      ml: [20, 30, 100, 1000],
     },
     {
-      id: 6,
+      id: 13,
       title: "Intocunal",
       old_mrp: 150,
       Discount: 10,

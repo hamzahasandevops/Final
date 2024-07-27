@@ -12,7 +12,7 @@ import "../Styles/TrendMed.css";
 export default function TrendMed() {
   const data = [
     {
-      id: 1,
+      id: 14,
       offPrice: "10% OFF",
       images:
         "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
@@ -24,7 +24,7 @@ export default function TrendMed() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 2,
+      id: 15,
       offPrice: "10% OFF",
       images:
         "https://th.bing.com/th?id=OIP.rkrsuJM78EClJS0V9CCiBgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
@@ -36,7 +36,7 @@ export default function TrendMed() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 3,
+      id: 16,
       offPrice: "10% OFF",
       images:
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
@@ -48,7 +48,7 @@ export default function TrendMed() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 4,
+      id: 17,
       offPrice: "10% OFF",
       images:
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
@@ -60,7 +60,7 @@ export default function TrendMed() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 5,
+      id: 18,
       offPrice: "10% OFF",
       images:
         "https://th.bing.com/th?id=OIP.0jTnbLsrhqN6HiEKBQOAigHaHx&w=243&h=256&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
@@ -72,7 +72,7 @@ export default function TrendMed() {
       ml: [20, 30, 100, 1000],
     },
     {
-      id: 6,
+      id: 19,
       offPrice: "10% OFF",
       images:
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",

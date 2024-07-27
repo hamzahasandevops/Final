@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { CartContext } from "../Components/Features/ContextProvider";
 import { totalItem } from "../Components/Features/CartReducer";
 import { totalPrice } from "../Components/Features/CartReducer";
+
 import Header from "./Header";
 export default function Cart() {
   const { cart, dispatch } = useContext(CartContext);
