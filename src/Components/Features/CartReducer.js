@@ -20,6 +20,9 @@ const CartReducer = (state, action) => {
         return [...state, action.d];
       }
 
+    case "ADD_FORM":
+      return [...state.filter((p) => p.id === action.id), action.d];
+
     case "Remove":
       return state.filter((p) => p.id !== action.id);
 

@@ -7,6 +7,10 @@ import NotFound from "./Pages/NotFound";
 import Appointment from "./Pages/Appointment";
 import Dashboard from "./Pages/Dashboard";
 import Cart from "./Pages/Cart";
+import Form from "./Pages/Forms/Form";
+import SignUp from "./Pages/Forms/SignUp";
+import Fetching from "./Components/Fetching";
+import ViewMore from "./Components/ViewMore";
 
 function App() {
   return (
@@ -16,6 +20,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/cart" element={<Cart />} />
+          {/* for form submission */}
+          <Route path="/form" element={<Form />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/viewmore" element={<ViewMore />} />
+
+          {/* //this is for reading data from db */}
+          <Route path="/fetching" element={<Fetching />} />
+
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="*" element={<NotFound />} />

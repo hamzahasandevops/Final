@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CartContext } from "./Features/ContextProvider";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 export default function ResultProduct({ product }) {
   const { dispatch } = useContext(CartContext);
   const [pincode, setPincode] = useState("");
@@ -112,8 +113,13 @@ export default function ResultProduct({ product }) {
         </div>
 
         <div className="row p-3 d-flex  justify-content-center">
-          <button className="btn btn-primary w-25 bg-light text-dark">
-            View more...
+          <button
+            className="btn btn-primary w-25 bg-light text-dark"
+            onClick={() => dispatch({ type: "ADD_FORM", d: product })}
+          >
+            <Link to="/viewMore" className="text-decoration-none">
+              View more...
+            </Link>
           </button>
         </div>
       </div>
