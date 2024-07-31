@@ -31,6 +31,7 @@ export default function Form() {
   };
 
   console.log(values);
+
   const containerStyle = {
     maxWidth: "500px",
     margin: "auto",
@@ -50,33 +51,6 @@ export default function Form() {
     marginBottom: "15px",
   };
 
-  const formControlStyle = {
-    width: "100%",
-    padding: "10px",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    boxSizing: "border-box",
-  };
-
-  const formControlFocusStyle = {
-    borderColor: "#007bff",
-    outline: "none",
-    boxShadow: "0 0 0 0.2rem rgba(38, 143, 255, 0.25)",
-  };
-
-  const errorStyle = {
-    color: "red",
-    fontSize: "12px",
-    marginTop: "5px",
-  };
-
-  const successMessageStyle = {
-    color: "green",
-    fontSize: "16px",
-    marginTop: "20px",
-    textAlign: "center",
-  };
-
   const buttonStyle = {
     display: "inline-block",
     padding: "10px 20px",
@@ -90,45 +64,58 @@ export default function Form() {
     textAlign: "center",
     textDecoration: "none",
   };
-
-  const buttonHoverStyle = {
-    backgroundColor: "#0056b3",
-  };
   return (
-    <div className="border border-3 container d-flex flex-column align-items-center justify-content-center p-5">
-      <div className="">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="form-control container "
-            placeholder="Enter your  name here"
-            name="name"
-            onChange={handleChange}
-          />
+    <div
+      style={{
+        height: "600px",
+        width: "1170px",
 
-          <input
-            type="email"
-            className="form-control container "
-            placeholder="Enter your email here"
-            name="email"
-            onChange={handleChange}
-          />
+        display: "flex",
+        margin: "auto",
+        marginTop: "120px",
+        backgroundColor: "#f9f9f9",
+      }}
+    >
+      <div style={containerStyle}>
+        <h1 style={headingStyle}>Login</h1>
+        <div className="">
+          <form onSubmit={handleSubmit}>
+            <div style={formGroupStyle}>
+              <input
+                type="text"
+                className="form-control container "
+                placeholder="Enter your  name here"
+                name="name"
+                onChange={handleChange}
+              />
+            </div>
 
-          <input
-            type="password"
-            className="form-control container "
-            placeholder="Enter Password"
-            name="password"
-            onChange={handleChange}
-          />
-
-          <input
-            type="submit"
-            className="btn btn-primary "
-            value="submit"
-            style={{}}
-          />
-        </form>
+            <div style={formGroupStyle}>
+              <input
+                type="email"
+                className="form-control container "
+                placeholder="Enter your email here"
+                name="email"
+                onChange={handleChange}
+              />
+            </div>
+            <div style={formGroupStyle}>
+              <input
+                type="password"
+                className="form-control container "
+                placeholder="Enter Password"
+                name="password"
+                onChange={handleChange}
+              />
+            </div>
+            <input
+              type="submit"
+              className="btn btn-primary "
+              value="submit"
+              style={buttonStyle}
+            />
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,38 @@
+/* General Accordion Styles */
+.accordion .card {
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+}
+
+.accordion .btn-link {
+    color: #007bff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.accordion .btn-link:hover {
+    color: #0056b3;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.accordion .collapse {
+    transition: height 0.35s ease, opacity 0.35s ease;
+}
+
+.accordion .card-body {
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #ddd;
+}

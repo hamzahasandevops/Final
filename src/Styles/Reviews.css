@@ -4,14 +4,16 @@
     justify-content: center;
     align-items: center;
     gap: 24px;
+    height: 712px;
     background: linear-gradient(to right, #ECF2FF, #FBFCFF);
+    
 }
 /* Text */
 .rw-text-content {
     width: 100%;
 }
 .rw-text-title {
-    margin: 16px 0;
+   
     color: #6F7074;
     font-family: 'Rubik', sans-serif;
     font-size: 32px;
@@ -22,7 +24,7 @@
     color: #178BFF;
 }
 .rw-text-desc {
-    margin: 16px 0;
+   
     color: black;
     font-family: 'Rubik', sans-serif;
     font-size: 36px;
@@ -31,7 +33,7 @@
     line-height: 2.6rem;
 }
 .rw-text-format {
-    margin: 64px 0;
+    margin: 84px 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;

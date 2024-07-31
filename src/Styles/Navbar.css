@@ -58,6 +58,47 @@
     background-color: white;
     border: 1px solid #1A8EFD;
 }
+
+
+/* //button */
+/* Navbar.css */
+
+.btn-advanced {
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    height: 60px;
+    width: 70px;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-advanced:hover {
+    background: linear-gradient(145deg, #0056b3, #003d79);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-advanced:active {
+    background: linear-gradient(145deg, #003d79, #002a50);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.btn-advanced:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+
+
 /* Hamburger Icon */
 .mobile-nav {
     display: none;

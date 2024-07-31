@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/material";
 export default function ViewMoreNav() {
   return (
-    <Container sx={{ flexGrow: 1 }} maxWidth="xl" className="mt-3">
+    <Container sx={{ flexGrow: 1 }} maxWidth="xxl" className="mt-3">
       <AppBar
         position="static"
         sx={{ backgroundColor: "white", color: "black" }}

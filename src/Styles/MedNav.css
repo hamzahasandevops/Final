@@ -1,0 +1,28 @@
+/* Ensure dropdown is responsive and stacked vertically */
+@media (max-width: 767px) {
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+
+
+/* Ensure dropdown menu takes full width */
+.dropdown-menu {
+    width: 100%;
+    display: none;
+    /* Hide by default */
+}
+
+/* Show dropdown menu on hover */
+.dropdown-menu.show {
+    display: block !important;
+}
+
+/* Optional: Add some space between dropdown items */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+}

@@ -33,7 +33,7 @@ function Reviews() {
   return (
     <div className="review-section" id="reviews">
       <div className="rw-text-content">
-        <p className="rw-text-title">
+        <p className="rw-text-title  mb-5">
           More over <span className="rw-text-num">1500+ Customers</span>
         </p>
 

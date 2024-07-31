@@ -1,0 +1,14 @@
+.dropdown-menu {
+    display: none;
+    margin-top: 0;
+    /* Adjust if needed */
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown{
+    height: 54px;
+}
+

@@ -11,14 +11,15 @@ import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Profile from "./Profile";
-import { IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip, TextField, Autocomplete } from "@mui/material";
 import { CartContext } from "./Features/ContextProvider";
 import { useContext } from "react";
 
-function Navbar() {
+function Navbar({ query, setQuery, handleSearch, techData }) {
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-
+  const [inputValue, setInputValue] = useState(query);
+  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const { cart } = useContext(CartContext);
 
   const openNav = () => {
@@ -35,22 +36,83 @@ function Navbar() {
     }
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const suggestions = techData.map((d) => d.title);
+
+  // Filter suggestions based on input value
+  const handleInputChange = (event, newInputValue) => {
+    setInputValue(newInputValue || "");
+    setQuery((newInputValue || "").toLowerCase());
+
+    // Filter the suggestions based on the input value
+    const newFilteredSuggestions = suggestions.filter((suggestion) =>
+      suggestion.toLowerCase().includes((newInputValue || "").toLowerCase())
+    );
+
+    setFilteredSuggestions(newFilteredSuggestions);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+
+  const handleSelect = (event, newValue) => {
+    setInputValue(newValue || "");
+    setQuery((newValue || "").toLowerCase());
+    handleSearch(); // Trigger search
   };
 
   return (
     <div className="navbar-section">
       <h1 className="navbar-title">
-        <Link to="/">
-          MedicineCare <span className="navbar-sign">+</span>
-        </Link>
+        <Link to="/">Medicine</Link>
       </h1>
+
+      {/* Search Input with Autocomplete */}
+      <div
+        style={{ width: "136px" }}
+        className="d-none d-sm-none d-md-none d-lg-block"
+      >
+        <form
+          className="d-flex"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSearch();
+          }}
+        >
+          <Autocomplete
+            freeSolo
+            options={filteredSuggestions}
+            value={inputValue}
+            onChange={handleSelect}
+            onInputChange={handleInputChange}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="outlined"
+                placeholder="Search Garcinia"
+                InputProps={{
+                  ...params.InputProps,
+                  style: {
+                    borderRadius: "50px",
+                    border: "1px solid #007bff",
+                    padding: "12px 20px",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    width: "330px",
+                    outline: "none",
+                    fontStyle: "italic",
+                    borderColor: "#007bff",
+                    background: "linear-gradient(145deg, #ffffff, #f1f3f5)",
+                    marginRight: "10px",
+                    boxSizing: "border-box",
+                  },
+                }}
+              />
+            )}
+          />
+          <button className="btn-advanced" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      {/* //navbar */}
 
       {/* Desktop */}
       <ul className="navbar-items">
@@ -152,24 +214,6 @@ function Navbar() {
             <a onClick={openNav} href="#contact">
               Contact
             </a>
-          </li>
-          <li>
-            <Link to="/cart">
-              <Tooltip
-                title={
-                  cart.length < 1 ? (
-                    <h3 className="cart px-3">Cart is empty</h3>
-                  ) : (
-                    ""
-                  )
-                }
-              >
-                <IconButton>
-                  <ShoppingCartIcon />
-                </IconButton>
-              </Tooltip>
-            </Link>
-            {cart.length}
           </li>
         </ul>
       </div>

@@ -26,8 +26,8 @@ export default function ResultProduct({ product }) {
   console.log(ml);
 
   return (
-    <div className="card d-flex flex-row row">
-      <div className="col-sm-4 d-flex justify-content-center align-items-center flex-column ">
+    <div className="card d-flex flex-row row container-fluid">
+      <div className="col-sm-3 d-flex justify-content-center align-items-center flex-column ">
         <img src={product.images} width="250px" height="230px" />
         <p class="card-text mt-3">
           MRP <del className="fs-5">₹{product.old_mrp}</del>
@@ -36,14 +36,14 @@ export default function ResultProduct({ product }) {
         </p>
       </div>
 
-      <div className="col-sm-8 col-lg-8 col-xs-8 overflow-auto">
+      <div className="col-sm-9 col-lg-8 col-xs-8 overflow-auto">
         <div class="card-body d-flex flex-column  justify-content-between overflow-auto">
           <h3 className="about-title mt-3 py-3">
             <span style={{ flexWrap: "wrap" }}>{product.title}</span>
           </h3>
-          <h5 class="card-title"> {product.desc}</h5>
+          <h5 class="card-title mt-2"> {product.desc}</h5>
         </div>
-        <div className="d-flex justify-content-around ">
+        <div className="d-flex   w-50  justify-content-around">
           <button
             className="btn btn-primary my-2"
             onClick={() => dispatch({ type: "ADD", d: product })}
@@ -67,7 +67,7 @@ export default function ResultProduct({ product }) {
           </select>
         </div>
         <div
-          className="container border border-2 d-flex flex-column p-3 "
+          className="container border border-2 d-flex flex-column p-3 my-3 "
           style={{ backgroundColor: "#f7f7f7" }}
         >
           <div className="title d-flex justify-content-start py-2">
@@ -103,7 +103,7 @@ export default function ResultProduct({ product }) {
             </ul>
           </div>
         </div>
-        <div className="offers p-3  shadow   bg-body rounded">
+        <div className="offers p-3  shadow  col-sm-12 col-12 col-md-12 col-lg-12 container mt-2 bg-body rounded">
           {" "}
           <h3 className="d-flex">Offer Available</h3>
           <p className="d-flex">
@@ -112,9 +112,9 @@ export default function ResultProduct({ product }) {
           </p>
         </div>
 
-        <div className="row p-3 d-flex  justify-content-center">
+        <div className="d-flex justify-content-start  p-3 ">
           <button
-            className="btn btn-primary w-25 bg-light text-dark"
+            className="btn btn-primary  bg-light text-dark mx-3"
             onClick={() => dispatch({ type: "ADD_FORM", d: product })}
           >
             <Link to="/viewMore" className="text-decoration-none">
