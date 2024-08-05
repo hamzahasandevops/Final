@@ -21,24 +21,130 @@
     font-weight: bold;
 }
 .navbar-items {
-    list-style-type: none;
+    list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 32px;
-    font-family: 'Rubik', sans-serif;
+    padding: 0;
+    margin: 0;
+
+    /* Background color for navbar */
+   
+    /* Border for separation */
 }
-.navbar-items > li {
-    list-style-type: none;
+
+.navbar-items li {
+    margin: 0 15px;
+    position: relative;
+    /* For cart count positioning */
 }
+
 .navbar-links {
     text-decoration: none;
-    color: black;
-    font-size: 18px;
-    letter-spacing: .8px;
+    color: #333;
+    /* Default text color */
+    font-size: 16px;
+    /* Default font size */
 }
+
 .navbar-links:hover {
-    color: #0cc2ea;
+    color: #007bff;
+    /* Hover color */
+}
+
+/* Cart Count Badge */
+.cart-count {
+    background-color: #ff5722;
+    /* Badge background color */
+    color: #fff;
+    /* Text color */
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* For mobile devices */
+@media (max-width: 1200px) {
+    .navbar-items {
+        padding: 0 10px;
+    }
+
+    .navbar-items li {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-items {
+        padding: 0 5px;
+    }
+
+    .navbar-items li {
+        margin: 0 5px;
+    }
+
+    .navbar-links {
+        font-size: 14px;
+        /* Slightly smaller font size for medium devices */
+    }
+
+    .cart-count {
+        font-size: 12px;
+        /* Smaller badge font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-items {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .navbar-items li {
+        margin: 10px 0;
+        /* Vertical spacing */
+    }
+
+    .navbar-links {
+        font-size: 12px;
+        /* Smaller font size for small devices */
+    }
+
+    .cart-count {
+        font-size: 10px;
+        /* Even smaller badge font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-items {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-items li {
+        margin: 8px 0;
+        /* Reduced vertical spacing */
+    }
+
+    .navbar-links {
+        font-size: 10px;
+        /* Smallest font size for very small devices */
+    }
+
+    .cart-count {
+        font-size: 8px;
+        /* Smallest badge font size */
+        top: -5px;
+        right: -5px;
+    }
 }
 .navbar-btn {
     padding: 14px 20px;

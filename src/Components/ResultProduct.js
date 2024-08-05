@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 export default function ResultProduct({ product }) {
   const { dispatch } = useContext(CartContext);
   const [pincode, setPincode] = useState("");
-  const [ml, setMl] = useState([]);
-
+  const [ml, setMl] = useState("");
   const handleChange = (e) => {
     const value = e.target.value;
 
@@ -23,10 +22,8 @@ export default function ResultProduct({ product }) {
     }
   };
 
-  console.log(ml);
-
   return (
-    <div className="card d-flex flex-row row container-fluid">
+    <div className="card d-flex flex-row row container-fluid pb-5">
       <div className="col-sm-3 d-flex justify-content-center align-items-center flex-column ">
         <img src={product.images} width="250px" height="230px" />
         <p class="card-text mt-3">

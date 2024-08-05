@@ -9,10 +9,10 @@ import "../Styles/Hero.css";
 import { CartContext } from "./Features/ContextProvider";
 import ResultProduct from "./ResultProduct";
 
-function Hero({ filteredData }) {
+function Hero({ filteredData, query }) {
   const navigate = useNavigate();
   const [goUp, setGoUp] = useState(false);
-  const [query, setQuery] = useState("");
+
   const { cart } = useContext(CartContext);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -40,7 +40,7 @@ function Hero({ filteredData }) {
   return (
     <div className="d-none d-sm-none d-lg-block">
       <AnimatePresence>
-        {filteredData.length > 0 ? (
+        {filteredData.length > 0 && query.length > 0 ? (
           filteredData.map((d) => (
             <motion.div
               key={d.id}

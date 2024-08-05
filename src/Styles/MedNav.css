@@ -1,28 +1,106 @@
-/* Ensure dropdown is responsive and stacked vertically */
-@media (max-width: 767px) {
-    .dropdown-menu {
-        position: static;
-        float: none;
-        width: 100%;
-        margin: 0;
+/* MediHero.css */
+
+/* General Styles */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slider-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    scroll-behavior: smooth;
+}
+
+.slider-content {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slider-item {
+    flex: 0 0 auto;
+    /* Prevent items from shrinking or growing */
+    margin: 0 5px;
+    /* Space between items */
+    text-align: center;
+    /* Center align text */
+    box-sizing: border-box;
+    /* Include padding in width */
+}
+
+/* Adjust item width for different screen sizes */
+.slider-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.slider-item p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    /* Base font size */
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Slider Controls */
+.slider-control {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    /* Adjust size for better visibility */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    /* Ensure controls are on top */
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .slider-item {
+        width: calc(33.33% - 10px);
+        /* Show 3 items at a time */
     }
 }
 
-
-
-/* Ensure dropdown menu takes full width */
-.dropdown-menu {
-    width: 100%;
-    display: none;
-    /* Hide by default */
+@media (max-width: 992px) {
+    .slider-item {
+        width: calc(33.33% - 10px);
+        /* Show 3 items at a time */
+    }
 }
 
-/* Show dropdown menu on hover */
-.dropdown-menu.show {
-    display: block !important;
+@media (max-width: 768px) {
+    .slider-item {
+        width: calc(33.33% - 10px);
+        /* Show 3 items at a time */
+    }
 }
 
-/* Optional: Add some space between dropdown items */
-.dropdown-menu .dropdown-item {
-    padding: 10px 15px;
+@media (max-width: 576px) {
+    .slider-item {
+        width: calc(33.33% - 10px);
+        /* Show 3 items at a time */
+    }
+
+    .slider-item p {
+        font-size: 12px;
+        /* Smaller text for smaller screens */
+    }
+
+    .slider-control {
+        font-size: 20px;
+        /* Slightly smaller controls */
+    }
 }

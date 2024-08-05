@@ -30,12 +30,12 @@ function About() {
             allData.length > 0 &&
             allData.map((d) => {
               return (
-                <div className="container-fluid w-100">
+                <div className="container-fluid w-100" key={d.id}>
                   <div className="row">
                     <div
                       className="col-12 border "
                       style={{
-                        width: "260px",
+                        width: "300px",
                         padding: "10px",
                         marginBottom: "10px",
                         display: "flex",
@@ -45,7 +45,7 @@ function About() {
                         overflowX: "scroll",
                       }}
                     >
-                      <button className="btn btn-primary w-50 m-2">
+                      <button className="btn btn-light  border border-1  w-50 m-2">
                         {d.offPrice}
                       </button>
 
@@ -69,12 +69,17 @@ function About() {
                         <del>MRP ${d.old_mrp}</del>
                         <ins>${d.new_mrp}</ins>
                       </div>
-                      <button
-                        className="btn btn-primary w-75"
-                        onClick={() => dispatch({ type: "ADD", d: d })}
-                      >
-                        ADD TO CART
-                      </button>
+                      <div className="d-flex">
+                        <button
+                          className="btn btn-light border border-1 w-75"
+                          onClick={() => dispatch({ type: "ADD", d: d })}
+                        >
+                          ADD TO CART
+                        </button>
+                        <button className="btn btn-light   border border-1 w-25">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

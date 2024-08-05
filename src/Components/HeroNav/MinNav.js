@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "../../Styles/MinNavbar.css";
 import MedNav from "./MedNav";
 import { Link } from "react-router-dom";
-import { IconButton, Tooltip } from "@mui/material";
+import { Autocomplete, IconButton, TextField, Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { CartContext } from "../Features/ContextProvider";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Profile from "../Profile";
+
 const input = {
   fontSize: "24px",
   lineHeight: "21px",
@@ -27,7 +28,6 @@ const input = {
 };
 
 const select = {
-  fontSize: "20px",
   fontWeight: 700,
   color: "#000",
   height: "54px",
@@ -39,54 +39,98 @@ const select = {
   textTransform: "capitalize",
 };
 
-export default function MinNav({ query, setQuery }) {
+const formbutton = {
+  background: "#f1f4f6",
+  width: "60px",
+  height: "60px",
+  fontSize: "22px",
+  borderRadius: "50%",
+};
+
+export default function MinNav({ query, setQuery, handleSearch, techData }) {
   const { cart } = useContext(CartContext);
+  const [inputValue, setInputValue] = useState(query);
+  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const suggestions = techData.map((d) => d.title);
+
+  // Filter suggestions based on input value
+  const handleInputChange = (event, newInputValue) => {
+    setInputValue(newInputValue || "");
+    setQuery((newInputValue || "").toLowerCase());
+
+    // Filter the suggestions based on the input value
+    const newFilteredSuggestions = suggestions.filter((suggestion) =>
+      suggestion.toLowerCase().includes((newInputValue || "").toLowerCase())
+    );
+
+    setFilteredSuggestions(newFilteredSuggestions);
+  };
+
+  const handleSelect = (event, newValue) => {
+    setInputValue(newValue || "");
+    setQuery((newValue || "").toLowerCase());
+    handleSearch(); // Trigger search
+  };
 
   return (
-    <div class=" container-fluid d-sm-block d-lg-block d-block d-flex flex-column align-items-center">
-      <div class="row d-flex flex-row border border-1 p-2">
-        <div className="col-xs-6 col-lg-6 col-sm-6  col-8 d-flex">
+    <div className=" container-fluid d-sm-block d-lg-block d-none d-flex flex-column align-items-center ">
+      <div className="row d-flex flex-row border border-1 p-2">
+        <div className="col-xs-6 col-lg-6 col-sm-6  col-8 d-flex align-items-center">
           <select className="btn btn-light" style={select}>
-            <option>India</option>
+            <option className="">Country</option>
+            <option className="">India</option>
             <option>Bangalore</option>
             <option>China</option>
             <option>Pakistan</option>
           </select>
 
-          <input
-            style={input}
-            type="text"
-            value={query}
-            placeholder="Search for Medicines and Health Products"
-            className="form-control "
-            onChange={(e) => setQuery(e.target.value.toLowerCase())}
-          />
-        </div>
+          <form
+            className="d-flex mx-2 "
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSearch();
+            }}
+          >
+            <Autocomplete
+              freeSolo
+              options={filteredSuggestions}
+              value={inputValue}
+              onChange={handleSelect}
+              onInputChange={handleInputChange}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  variant="outlined"
+                  placeholder="Search Garcinia ..."
+                  InputProps={{
+                    ...params.InputProps,
+                    style: {
+                      border: "1px solid #007bff",
 
-        <div className="col-xs-3 col-lg-3 col-sm-3 col-1 d-block d-sm-none d-lg-none d-md-none">
-          <Link to="/cart">
-            <Tooltip
-              title={
-                cart.length < 1 ? (
-                  <h3 className="cart px-3">Cart is empty</h3>
-                ) : (
-                  ""
-                )
-              }
-            >
-              <IconButton>
-                <ShoppingCartIcon />
-              </IconButton>
-            </Tooltip>
-          </Link>
-          {cart.length}
-        </div>
-        <div className="col-xs-3 col-lg-3 col-sm-3 col-3 d-block d-sm-none d-lg-none d-md-none">
-          <Profile />
+                      fontSize: "16px",
+                      transition: "all 0.3s ease",
+
+                      width: "430px",
+                      outline: "none",
+                      paddingLeft: "30px",
+                      fontStyle: "italic",
+                      border: "none",
+                      outline: "none",
+                      marginRight: "10px",
+                      boxSizing: "border-box",
+                    },
+                  }}
+                />
+              )}
+            />
+            <button className="btn  " type="submit" style={formbutton}>
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
         </div>
       </div>
 
-      <div class="row  col-lg-12 col-sm-12 col-12  d-flex flex-row b p-2">
+      <div className="row  col-lg-12 col-sm-12 col-12  d-flex flex-row b p-2">
         <MedNav />
 
         {/* <div className="col-xs-3 col-lg-3 col-sm-3">hamza</div> */}

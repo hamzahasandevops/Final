@@ -11,6 +11,10 @@ import Form from "./Pages/Forms/Form";
 import SignUp from "./Pages/Forms/SignUp";
 import Fetching from "./Components/Fetching";
 import ViewMore from "./Components/ViewMore";
+import MobileSearch from "./Pages/Forms/MobileTabs/MobileSearch";
+
+import MediCategory from "./Pages/Forms/MobileTabs/MediCategory";
+import ItemDetail from "./Pages/Forms/MobileTabs/ItemDetail";
 
 function App() {
   return (
@@ -24,7 +28,9 @@ function App() {
           <Route path="/form" element={<Form />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/viewmore" element={<ViewMore />} />
-
+          <Route path="/mobilesearch" element={<MobileSearch />} />
+          <Route path="/mobilecategory" element={<MediCategory />} />
+          <Route path="/item/:id" element={<ItemDetail />} />
           {/* //this is for reading data from db */}
           <Route path="/fetching" element={<Fetching />} />
 

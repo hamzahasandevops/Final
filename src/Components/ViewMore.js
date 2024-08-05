@@ -70,7 +70,7 @@ export default function ViewMore() {
                     <BreadCrumbs />
                   </div>
                 </div>
-                <div className="col-md-5 col-sm-5 p-5">
+                <div className="col-md-5 col-sm-12 p-5 col">
                   <div
                     id="carouselExampleCaptions"
                     class="carousel slide"
@@ -161,7 +161,7 @@ export default function ViewMore() {
                     </button>
                   </div>
                 </div>
-                <div className="col-md-7 col-sm-7 ">
+                <div className="col-md-7 col-sm-12 ">
                   <div className="title-field">
                     <h3 className="about-title py-3  ">
                       <span>{c.title}</span>
@@ -201,7 +201,7 @@ export default function ViewMore() {
                     {"  "}
                   </div>
                   <div className="dispatchButtons d-flex align-items-center  w-50 justify-content-between">
-                    <div className="border border-1 p-1 rounded">
+                    <div className="border border-1 p-1 rounded d-flex">
                       {" "}
                       <button
                         className="rounded circle px-2 btn btn-light"
@@ -220,16 +220,27 @@ export default function ViewMore() {
                       </button>
                     </div>
                     <div className="border border-1 p-1 rounded">
-                      <button className="btn btn-light mx-2">
+                      {/* for large devices */}
+                      <button
+                        className="btn btn-light mx-2 d-none d-lg-block d-xl-block"
+                        onClick={() => dispatch({ type: "ADD", d: c })}
+                      >
                         <i class="fa-solid fa-cart-shopping text-success"></i>{" "}
                         ADD TO CART
                       </button>
+                      <button
+                        className="btn btn-light d-block mx-2 d-lg-none d-xl-none"
+                        onClick={() => dispatch({ type: "ADD", d: c })}
+                      >
+                        <i class="fa-solid fa-cart-shopping text-success"></i>{" "}
+                      </button>
                     </div>
                     <div className="border border-1 p-1 rounded">
-                      <button className="btn btn-light mx-2 ">
-                        <i class="fa-solid fa-cart-shopping text-success"></i>{" "}
+                      <button className="btn btn-light mx-2 d-none d-lg-block d-xl-block">
+                        <i class="fa-solid fa-cart-shopping text-success d-lg-none d-xl-none"></i>{" "}
                         BUY
                       </button>
+                      <button className="btn btn-light mx-2 ">Buy</button>
                     </div>
                   </div>
 

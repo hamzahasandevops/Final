@@ -1,14 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function InformationCard(props) {
+function InformationCard({ icon, title, image }) {
   return (
-    <div className="info-cards">
-      <span className="info-card-icon">
-        <FontAwesomeIcon className="info-fa-icon" icon={props.icon} />
-      </span>
-      <p className="info-card-title">{props.title}</p>
-      <p className="info-card-description">{props.description}</p>
+    <div className="info-card">
+      <div className="card-icon">
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <div className="card-title">
+        <h4>{title}</h4>
+      </div>
+      <img src={image} alt={title} className="card-background" />
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import Back from "../../Assets/doctor-book-appointment.png";
 
 export default function SignUp() {
   const Navigate = useNavigate();
@@ -14,17 +13,16 @@ export default function SignUp() {
     mobile: "",
   });
 
-  //validation
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     password: "",
     mobile: "",
   });
-  //   const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+
+  const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [file, setFile] = useState(null); // State for file
+  const [file, setFile] = useState(null);
 
   const validateField = (name, value) => {
     switch (name) {
@@ -63,7 +61,7 @@ export default function SignUp() {
         break;
 
       case "mobile":
-        const mobileRegex = /^[0-9]{10}$/; // Adjust regex for your mobile format
+        const mobileRegex = /^[0-9]{10}$/;
         if (!mobileRegex.test(value)) {
           setErrors((prevErrors) => ({
             ...prevErrors,
@@ -82,9 +80,9 @@ export default function SignUp() {
   const handleChange = (event) => {
     const { name, value, type, files } = event.target;
     if (type === "file") {
-      setFile(files[0]); // Handle file input
+      setFile(files[0]);
     } else {
-      setValues({ ...values, [name]: String(value) }); // Ensure value is a string
+      setValues({ ...values, [name]: value });
       validateField(name, value);
     }
   };
@@ -111,58 +109,57 @@ export default function SignUp() {
     formData.append("password", values.password);
     formData.append("mobile", values.mobile);
     if (file) {
-      formData.append("file", file); // Append the file
+      formData.append("file", file);
     }
 
     axios
       .post("http://localhost:8000/signup", formData, {
         headers: {
-          "Content-Type": "multipart/form-data", // Important for file uploads
+          "Content-Type": "multipart/form-data",
         },
       })
-      .then((res) => setSuccessMessage("Form submission successfull"))
+      .then((res) => {
+        setSuccessMessage("Form submission successful");
+        setTimeout(() => {
+          Navigate("/"); // Redirect after 2 seconds
+        }, 2000);
+      })
       .catch((err) => {
-        setErrorMessage(
-          "An error occurred while submitting the form. Please try again."
-        );
+        setErrorMessage("An error occurred. Please try again.");
       });
-    setFile(null); // Clear the file
-    setErrorMessage("");
-  };
 
-  console.log(values);
+    setFile(null); // Clear the file state
+    setErrorMessage(""); // Clear error message
+  };
 
   // Inline styles
   const containerStyle = {
-    maxWidth: "500px",
+    maxWidth: "1100px",
     margin: "auto",
     padding: "20px",
-    backgroundColor: "#f9f9f9",
+    backgroundColor: "skyblue",
     borderRadius: "8px",
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-  };
-
-  const headingStyle = {
-    textAlign: "center",
+    position: "relative",
+    overflow: "hidden",
+    fontFamily: "Arial, sans-serif",
     color: "#333",
-    marginBottom: "20px",
+    marginTop: "120px",
   };
 
   const formGroupStyle = {
-    marginBottom: "15px",
+    marginBottom: "20px",
   };
 
   const formControlStyle = {
     width: "100%",
     padding: "10px",
+    fontSize: "16px",
     border: "1px solid #ccc",
     borderRadius: "4px",
     boxSizing: "border-box",
-  };
-
-  const formControlFocusStyle = {
-    outline: "none",
-    boxShadow: "0 0 0 0.2rem rgba(38, 143, 255, 0.25)",
+    transition: "box-shadow 0.3s ease-in-out",
+    fontFamily: "inherit",
   };
 
   const errorStyle = {
@@ -177,6 +174,7 @@ export default function SignUp() {
     marginTop: "20px",
     textAlign: "center",
   };
+
   const successMessageStyle = {
     color: "green",
     fontSize: "16px",
@@ -196,103 +194,118 @@ export default function SignUp() {
     cursor: "pointer",
     textAlign: "center",
     textDecoration: "none",
+    transition: "background-color 0.3s ease-in-out",
+    fontFamily: "inherit",
   };
 
   const buttonHoverStyle = {
     backgroundColor: "#0056b3",
   };
+
   return (
-    <div style={containerStyle}>
-      <h1 style={headingStyle}>Sign Up</h1>
-      <div className="">
-        <form onSubmit={handleSubmit}>
-          <div style={formGroupStyle}>
-            <input
-              type="text"
-              className="form-control container "
-              placeholder="Enter your  name here"
-              style={{
-                ...formControlStyle,
-                ...(errors.name ? formControlFocusStyle : {}),
-              }}
-              name="name"
-              value={values.name}
-              onChange={handleChange}
-            />
-            {errors.name && <div className="error">{errors.name}</div>}
-          </div>
-
-          <div style={formGroupStyle}>
-            <input
-              type="email"
-              className="form-control container "
-              style={{
-                ...formControlStyle,
-                ...(errors.email ? formControlFocusStyle : {}),
-              }}
-              placeholder="Enter your email here"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email && <div className="error">{errors.email}</div>}
-          </div>
-
-          <div style={formGroupStyle}>
-            {" "}
-            <input
-              type="password"
-              className="form-control container "
-              placeholder="Enter Password"
-              name="password"
-              style={{
-                ...formControlStyle,
-                ...(errors.password ? formControlFocusStyle : {}),
-              }}
-              value={values.password}
-              onChange={handleChange}
-            />
-            {errors.password && <div className="error">{errors.password}</div>}
-          </div>
-
-          <div style={formGroupStyle}>
-            {" "}
-            <input
-              type="number"
-              className="form-control container "
-              onChange={handleChange}
-              style={{
-                ...formControlStyle,
-                ...(errors.password ? formControlFocusStyle : {}),
-              }}
-              placeholder="Enter your Phone number"
-              value={values.mobile}
-              name="mobile"
-            />
-            {errors.mobile && <div className="error">{errors.mobile}</div>}
-          </div>
-          <div style={formGroupStyle}>
-            <input
-              type="file"
-              style={formControlStyle}
-              name="images"
-              onChange={handleChange}
-            />
-          </div>
-          <input
-            type="submit"
-            className="btn btn-primary "
-            value="submit"
-            style={buttonStyle}
-          />
-        </form>
-
-        {/* Display the error message */}
-        {errorMessage && <div style={errorMessageStyle}>{errorMessage}</div>}
-        {successMessage && (
-          <div style={successMessageStyle}>{successMessage}</div>
-        )}
+    <div style={containerStyle} className="d-flex justify-content-around">
+      <div>
+        <img src={Back} />
       </div>
+
+      <form onSubmit={handleSubmit}>
+        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Sign Up</h1>
+        <div style={formGroupStyle}>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter your name"
+            style={{
+              ...formControlStyle,
+              ...(errors.name
+                ? { boxShadow: "0 0 0 0.2rem rgba(220, 53, 69, 0.25)" }
+                : {}),
+            }}
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+          />
+          {errors.name && <div style={errorStyle}>{errors.name}</div>}
+        </div>
+
+        <div style={formGroupStyle}>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Enter your email"
+            style={{
+              ...formControlStyle,
+              ...(errors.email
+                ? { boxShadow: "0 0 0 0.2rem rgba(220, 53, 69, 0.25)" }
+                : {}),
+            }}
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+          />
+          {errors.email && <div style={errorStyle}>{errors.email}</div>}
+        </div>
+
+        <div style={formGroupStyle}>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter your password"
+            style={{
+              ...formControlStyle,
+              ...(errors.password
+                ? { boxShadow: "0 0 0 0.2rem rgba(220, 53, 69, 0.25)" }
+                : {}),
+            }}
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+          />
+          {errors.password && <div style={errorStyle}>{errors.password}</div>}
+        </div>
+
+        <div style={formGroupStyle}>
+          <input
+            type="tel"
+            className="form-control"
+            placeholder="Enter your mobile number"
+            style={{
+              ...formControlStyle,
+              ...(errors.mobile
+                ? { boxShadow: "0 0 0 0.2rem rgba(220, 53, 69, 0.25)" }
+                : {}),
+            }}
+            name="mobile"
+            value={values.mobile}
+            onChange={handleChange}
+          />
+          {errors.mobile && <div style={errorStyle}>{errors.mobile}</div>}
+        </div>
+
+        <div style={formGroupStyle}>
+          <input
+            type="file"
+            className="form-control"
+            name="file"
+            onChange={handleChange}
+          />
+        </div>
+
+        <input
+          type="submit"
+          className="btn btn-primary"
+          value="Submit"
+          style={buttonStyle}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#0056b3")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "#007bff")}
+        />
+      </form>
+
+      {/* Display error and success messages */}
+      {errorMessage && <div style={errorMessageStyle}>{errorMessage}</div>}
+      {successMessage && (
+        <div style={successMessageStyle}>{successMessage}</div>
+      )}
     </div>
   );
 }

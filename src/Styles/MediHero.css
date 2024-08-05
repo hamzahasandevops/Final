@@ -1,33 +1,85 @@
-/* Container for carousel to manage height and overflow */
-.carousel .slide {
-    height: 200px;
-    /* Set the height of the carousel */
+.slider-container {
+    position: relative;
     display: flex;
     align-items: center;
-    /* Center content vertically */
-    justify-content: center;
-    /* Center content horizontally */
+    width: 100%;
     overflow: hidden;
-    /* Hide overflow for better control */
 }
 
-/* Style for images inside the carousel */
-.carousel .carousel-image {
-    height: 100%;
-    /* Make the image fill the height of the container */
-    width: auto;
-    /* Maintain aspect ratio */
-    object-fit: cover;
-    /* Cover the area while preserving aspect ratio */
+.slider-wrapper {
+    overflow: hidden;
+    width: 100%;
 }
 
-/* Optional: Style for the carousel legend */
-.carousel .legend {
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    bottom: 10px;
-    left: 10px;
-    padding: 10px;
+.slider-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider-item {
+    flex: 0 0 auto;
+    width: calc(100% / 13);
+    /* Adjust to show 13 images at once */
+    box-sizing: border-box;
+    padding: 5px;
+    text-align: center;
+}
+
+.slider-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.slider-item p {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.slider-control {
+    background: rgba(255, 255, 255, 0.35);
+    /* White background with opacity */
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    /* Light white color for arrows */
+    font-size: 24px;
     position: absolute;
-    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 50px;
+    /* Fixed width */
+    height: 50px;
+    /* Fixed height */
+    border-radius: 50%;
+    /* Make it perfectly round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    z-index: 10;
+}
+
+.slider-control:hover {
+    background: rgba(255, 255, 255, 0.5);
+    /* Slightly more opaque on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-control.prev {
+    left: 10px;
+}
+
+.slider-control.next {
+    right: 10px;
+}
+
+.slider-control span {
+    font-size: 24px;
+    font-weight: bold;
+    color: inherit;
+    /* Ensure the arrow color matches the button color */
 }

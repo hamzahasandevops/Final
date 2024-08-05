@@ -18,7 +18,7 @@ export default function TrendMed() {
         "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Wine Beauty Trio Complex Cleanser",
       old_mrp: "170",
-      new_mrp: "163",
+      new_mrp: 163,
       quantity: 1,
       Discount: 10,
       ml: [20, 30, 100, 1000],
@@ -30,7 +30,7 @@ export default function TrendMed() {
         "https://th.bing.com/th?id=OIP.rkrsuJM78EClJS0V9CCiBgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Utronin Drops",
       old_mrp: "175",
-      new_mrp: "166",
+      new_mrp: 166,
       quantity: 1,
       Discount: 10,
       ml: [20, 30, 100, 1000],
@@ -42,7 +42,7 @@ export default function TrendMed() {
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Colin Oral Drop",
       old_mrp: "175",
-      new_mrp: "166",
+      new_mrp: 166,
       quantity: 1,
       Discount: 10,
       ml: [20, 30, 100, 1000],
@@ -54,7 +54,7 @@ export default function TrendMed() {
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Colin Oral Drop",
       old_mrp: "175",
-      new_mrp: "166",
+      new_mrp: 166,
       quantity: 1,
       Discount: 10,
       ml: [20, 30, 100, 1000],
@@ -65,8 +65,8 @@ export default function TrendMed() {
       images:
         "https://th.bing.com/th?id=OIP.0jTnbLsrhqN6HiEKBQOAigHaHx&w=243&h=256&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Thyroidinumn Tablet 3X",
-      old_mrp: "131",
-      new_mrp: "118",
+      old_mrp: 131,
+      new_mrp: 118,
       quantity: 1,
       Discount: 10,
       ml: [20, 30, 100, 1000],
@@ -78,7 +78,7 @@ export default function TrendMed() {
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Colin Oral Drop",
       old_mrp: "175",
-      new_mrp: "166",
+      new_mrp: 166,
       quantity: 1,
       Discount: 10,
       ml: [20, 30, 100, 1000],
@@ -133,7 +133,12 @@ export default function TrendMed() {
                   }}
                 >
                   <CardMedia
-                    sx={{ height: 210, width: 230, transition: "0.2s linear" }}
+                    sx={{
+                      height: 210,
+                      width: 230,
+                      transition: "0.2s linear",
+                      backgroundPosition: "contain",
+                    }}
                     image={d.images}
                     title="green iguana"
                     className="card-nav"
@@ -152,13 +157,16 @@ export default function TrendMed() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button
+                    <button
                       size="small"
-                      className="btn btn-primary"
+                      className="btn btn-light border border-1"
                       onClick={() => dispatch({ type: "ADD", d: d })}
                     >
                       ADD TO CART
-                    </Button>
+                    </button>{" "}
+                    <button className="btn btn-light   border border-1 w-25">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
                   </CardActions>
                 </Card>
               </div>

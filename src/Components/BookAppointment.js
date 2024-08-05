@@ -64,9 +64,9 @@ function BookAppointment() {
 
         <div className="d-flex justify-content-center align-items-center flex-row">
           <Grid container spacing={2}>
-            {data.map((d) => {
+            {data.map((d, i) => {
               return (
-                <Grid item sm={6} lg={6} xs={6} sx={{}}>
+                <Grid item sm={6} lg={6} xs={6} sx={{}} key={i}>
                   <div
                     style={{
                       position: "relative",

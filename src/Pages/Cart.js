@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "../Styles/Cart.css";
 import { useContext } from "react";
 import { CartContext } from "../Components/Features/ContextProvider";
@@ -6,21 +6,83 @@ import { totalItem } from "../Components/Features/CartReducer";
 import { totalPrice } from "../Components/Features/CartReducer";
 
 import Header from "./Header";
+import { Link } from "react-router-dom";
+
 export default function Cart() {
   const { cart, dispatch } = useContext(CartContext);
 
+  const [ml, setMl] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  // Handle checkbox click to update selected items
+  const handleCheckboxChange = useCallback((id, mrp) => {
+    setSelectedItems((prevState) => {
+      const selectedIds = new Set(prevState.map((item) => item.id));
+
+      if (selectedIds.has(id)) {
+        return prevState.filter((item) => item.id !== id);
+      } else {
+        return [...prevState, { id, mrp }];
+      }
+    });
+  }, []);
+
+  // Function to calculate total price
+  const getTotalPrice = useMemo(() => {
+    return selectedItems
+      .reduce((total, item) => total + item.mrp, 0)
+      .toFixed(2);
+  }, [selectedItems]);
+
+  const updateSelectedItemsOnRemove = useCallback((id) => {
+    setSelectedItems((prevState) => {
+      return prevState.filter((item) => item.id !== id);
+    });
+  }, []);
+
+  const removeItem = (id) => {
+    dispatch({ type: "Remove", id });
+    updateSelectedItemsOnRemove(id); // Remove from selected items as well
+  };
+
   const increase = (id) => {
-    const Index = cart.findIndex((p) => p.id === id);
-    if (cart[Index].quantity < 10) {
+    const itemIndex = cart.findIndex((p) => p.id === id);
+    if (itemIndex !== -1 && cart[itemIndex].quantity < 10) {
       dispatch({ type: "Increase", id });
+      updateSelectedItems(id); // Ensure selected items reflect the updated price immediately
     }
   };
+
   const decrease = (id) => {
-    const Index = cart.findIndex((p) => p.id === id);
-    if (cart[Index].quantity > 1) {
+    const itemIndex = cart.findIndex((p) => p.id === id);
+    if (itemIndex !== -1 && cart[itemIndex].quantity > 1) {
       dispatch({ type: "Decrease", id });
+      updateSelectedItems(id); // Ensure selected items reflect the updated price immediately
     }
   };
+
+  // Function to update selected items based on cart changes
+  const updateSelectedItems = useCallback(() => {
+    setSelectedItems((prevState) =>
+      prevState.map((item) => {
+        const cartItem = cart.find((p) => p.id === item.id);
+        if (cartItem) {
+          return {
+            ...item,
+            mrp: cartItem.new_mrp * cartItem.quantity,
+          };
+        }
+        return item;
+      })
+    );
+  }, [cart]);
+
+  // Effect to update selected items whenever cart changes
+  useEffect(() => {
+    updateSelectedItems();
+  }, [cart, updateSelectedItems]);
+
+  console.log(ml);
 
   return (
     <>
@@ -30,9 +92,10 @@ export default function Cart() {
 
       <div className=" d-flex row container m-auto flex-sm-row flex-md-column flex-sm-row flex-lg-row">
         {cart.length < 1 ? (
-          <h1 className="mt-5 p-5 bg-light border border-1 rounded">
-            <span>Empty Cart</span>
-          </h1>
+          <p className="mt-5 p-5 bg-light border border-1 rounded">
+            <span>Empty Cart Go To Shoping </span>
+            <Link to="/">Home</Link>
+          </p>
         ) : (
           <>
             <div className="  mt-5     col-md-10 col-sm-10">
@@ -42,6 +105,7 @@ export default function Cart() {
                     <table>
                       <tr>
                         <th>Products</th>
+
                         <th>Name</th>
                         <th>ml</th>
                         <th>Mrp</th>
@@ -53,16 +117,27 @@ export default function Cart() {
                         <th className="d-none d-sm-none d-md-none d-xl-block">
                           Total Mrp
                         </th>
+                        <th>Check</th>
                       </tr>
                       <tr>
                         <td style={{ padding: "10px" }}>
                           <img src={c.images} height="100px" width="100px" />
                         </td>
+
                         <td>
                           <p>{c.title}</p>
                         </td>
                         <td>
-                          <p>{c.ml[0]}</p>
+                          <select
+                            className="btn btn-primary my-2 bg-light text-dark"
+                            onChange={(e) => {}}
+                          >
+                            {c.ml.map((p, index) => (
+                              <option key={index} value={p}>
+                                {p}
+                              </option>
+                            ))}
+                          </select>
                         </td>
                         <td>
                           <del>₹{c.old_mrp}</del>
@@ -104,9 +179,7 @@ export default function Cart() {
                                 data-html="true"
                                 title="Delete"
                                 className="rounded circle  btn btn-light "
-                                onClick={() =>
-                                  dispatch({ type: "Remove", id: c.id })
-                                }
+                                onClick={() => removeItem(c.id)}
                               >
                                 <i class="fa-solid fa-trash text-danger"></i>
                               </button>
@@ -116,7 +189,15 @@ export default function Cart() {
 
                         <td className="d-none d-sm-none d-md-none d-xl-block">
                           <p>₹{c.new_mrp}</p>
-                          {/* <p>${totalPrice(cart)}</p> */}
+                        </td>
+                        <td>
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            onChange={() =>
+                              handleCheckboxChange(c.id, c.new_mrp)
+                            }
+                          />
                         </td>
                       </tr>
                     </table>
@@ -126,9 +207,28 @@ export default function Cart() {
             </div>
             <div className="col-md-6 col-sm-6 col-xs-6 col-lg-2 mt-1 mt-4 p-4">
               <p>Total Items: {totalItem(cart)}</p>
-              <p>Total price: ₹ {totalPrice(cart)}</p>
+              <p>Total price: ₹ {totalPrice(cart)}</p>{" "}
               <button className="btn btn-primary">checkout</button>
-            </div>
+              <div className="col-md-12 mt-5 ">
+                <h4>Selected Items</h4>
+                {selectedItems.length === 0 ? (
+                  <p>No items selected.</p>
+                ) : (
+                  <ul>
+                    {selectedItems.map((item) => (
+                      <li key={item.id}>
+                        ID: {item.id}, MRP: ₹{item.mrp}
+                      </li>
+                    ))}
+                  </ul>
+                )}{" "}
+                <p>
+                  <strong>
+                    Total Price (Selected Items): ₹ {getTotalPrice}
+                  </strong>
+                </p>
+              </div>
+            </div>{" "}
           </>
         )}
       </div>

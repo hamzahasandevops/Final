@@ -1,0 +1,43 @@
+/* MobileFooter.css */
+
+/* Basic styles for the icon bar */
+.icon-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100% !important;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    column-gap: 35px;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* Icon styles */
+.icon-bar a {
+    text-align: center;
+    padding: 14px;
+    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.icon-bar a i {
+    color: #000000;
+    font-size: 18px;
+}
+
+/* Active icon style */
+.icon-bar a.active {
+    background-color: #555;
+}
+
+
+ @media (min-width: 768px) {
+    .icon-bar {
+        display: none;
+    }
+}

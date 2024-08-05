@@ -10,6 +10,8 @@ import Footer from "../Components/Footer";
 import TrendMed from "../Components/TrendMed";
 import MinNav from "../Components/HeroNav/MinNav";
 import MediHero from "../Components/Medihero/MediHero";
+import FullHero from "../Components/Medihero/FullHero";
+import MobileFooter from "./MobileFooter";
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -121,16 +123,23 @@ function Home() {
 
   return (
     <div className="home-section">
+      <MobileFooter />
       <Navbar
         query={query || ""}
         setQuery={setQuery}
         handleSearch={handleSearch}
         techData={techData}
       />
-      <MinNav query={query} setQuery={setQuery} />
+      <MinNav
+        query={query || ""}
+        setQuery={setQuery}
+        handleSearch={handleSearch}
+        techData={techData}
+      />
 
       <MediHero />
-      <Hero filteredData={filteredData1} />
+      <FullHero />
+      <Hero filteredData={filteredData1} query={query} />
 
       <Info />
       <About />
