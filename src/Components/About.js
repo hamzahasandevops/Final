@@ -50,7 +50,7 @@ function About() {
                       </button>
 
                       <img
-                        src={d.images}
+                        src={d.image}
                         className="card-img-top"
                         alt="fuc"
                         style={{ height: "150px", width: "150px" }}

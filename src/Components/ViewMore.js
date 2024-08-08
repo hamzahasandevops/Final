@@ -65,23 +65,19 @@ export default function ViewMore() {
           return (
             <div className=" p-5 d-flex flex-column w-75 m-auto  w-100">
               <div className="row  d-flex flex-row ">
-                <div className="col-md-12 col-sm-12 ">
-                  <div className="title-field mx-4">
-                    <BreadCrumbs />
-                  </div>
-                </div>
-                <div className="col-md-5 col-sm-12 p-5 col">
+                <div className="col-md-12 col-sm-12 "></div>
+                <div className="col-md-5 col-sm-12 p-3 col">
                   <div
                     id="carouselExampleCaptions"
-                    class="carousel slide"
+                    className="carousel slide"
                     data-bs-ride="carousel"
                   >
-                    <div class="carousel-indicators">
+                    <div className="carousel-indicators">
                       <button
                         type="button"
                         data-bs-target="#carouselExampleCaptions"
                         data-bs-slide-to="0"
-                        class="active"
+                        className="active"
                         aria-current="true"
                         aria-label="Slide 1"
                       ></button>
@@ -98,15 +94,17 @@ export default function ViewMore() {
                         aria-label="Slide 3"
                       ></button>
                     </div>
-                    <div class="carousel-inner ">
-                      <div class="carousel-item active" data-bs-interval="2000">
+                    <div className="carousel-inner ">
+                      <div
+                        className="carousel-item active"
+                        data-bs-interval="2000"
+                      >
                         <img
                           src={c.images}
-                          class="d-block w-75"
+                          className="d-block w-75"
                           alt="..."
-                          hei
                         />
-                        <div class="carousel-caption d-none d-md-block">
+                        <div className="carousel-caption d-none d-md-block">
                           <h5>First slide label</h5>
                           <p>
                             Some representative placeholder content for the
@@ -114,9 +112,13 @@ export default function ViewMore() {
                           </p>
                         </div>
                       </div>
-                      <div class="carousel-item" data-bs-interval="2000">
-                        <img src={c.images} class="d-block  w-75" alt="..." />
-                        <div class="carousel-caption d-none d-md-block">
+                      <div className="carousel-item" data-bs-interval="2000">
+                        <img
+                          src={c.images}
+                          className="d-block  w-75"
+                          alt="..."
+                        />
+                        <div className="carousel-caption d-none d-md-block">
                           <h5>Second slide label</h5>
                           <p>
                             Some representative placeholder content for the
@@ -124,9 +126,13 @@ export default function ViewMore() {
                           </p>
                         </div>
                       </div>
-                      <div class="carousel-item" data-bs-interval="2000">
-                        <img src={c.images} class="d-block  w-75" alt="..." />
-                        <div class="carousel-caption d-none d-md-block">
+                      <div className="carousel-item" data-bs-interval="2000">
+                        <img
+                          src={c.images}
+                          className="d-block  w-75"
+                          alt="..."
+                        />
+                        <div className="carousel-caption d-none d-md-block">
                           <h5>Third slide label</h5>
                           <p>
                             Some representative placeholder content for the
@@ -136,28 +142,28 @@ export default function ViewMore() {
                       </div>
                     </div>
                     <button
-                      class="carousel-control-prev"
+                      className="carousel-control-prev"
                       type="button"
                       data-bs-target="#carouselExampleCaptions"
                       data-bs-slide="prev"
                     >
                       <span
-                        class="carousel-control-prev-icon"
+                        className="carousel-control-prev-icon"
                         aria-hidden="true"
                       ></span>
-                      <span class="visually-hidden">Previous</span>
+                      <span className="visually-hidden">Previous</span>
                     </button>
                     <button
-                      class="carousel-control-next"
+                      className="carousel-control-next"
                       type="button"
                       data-bs-target="#carouselExampleCaptions"
                       data-bs-slide="next"
                     >
                       <span
-                        class="carousel-control-next-icon"
+                        className="carousel-control-next-icon"
                         aria-hidden="true"
                       ></span>
-                      <span class="visually-hidden">Next</span>
+                      <span className="visually-hidden">Next</span>
                     </button>
                   </div>
                 </div>
@@ -225,19 +231,19 @@ export default function ViewMore() {
                         className="btn btn-light mx-2 d-none d-lg-block d-xl-block"
                         onClick={() => dispatch({ type: "ADD", d: c })}
                       >
-                        <i class="fa-solid fa-cart-shopping text-success"></i>{" "}
+                        <i className="fa-solid fa-cart-shopping text-success"></i>{" "}
                         ADD TO CART
                       </button>
                       <button
                         className="btn btn-light d-block mx-2 d-lg-none d-xl-none"
                         onClick={() => dispatch({ type: "ADD", d: c })}
                       >
-                        <i class="fa-solid fa-cart-shopping text-success"></i>{" "}
+                        <i className="fa-solid fa-cart-shopping text-success"></i>{" "}
                       </button>
                     </div>
                     <div className="border border-1 p-1 rounded">
                       <button className="btn btn-light mx-2 d-none d-lg-block d-xl-block">
-                        <i class="fa-solid fa-cart-shopping text-success d-lg-none d-xl-none"></i>{" "}
+                        <i className="fa-solid fa-cart-shopping text-success d-lg-none d-xl-none"></i>{" "}
                         BUY
                       </button>
                       <button className="btn btn-light mx-2 ">Buy</button>
@@ -367,19 +373,19 @@ export default function ViewMore() {
                       <span>{count} out of </span>
                       <span className="text-dark"> 5 </span>
                       <span
-                        class="fa fa-star checked "
+                        className="fa fa-star checked "
                         style={ratingStar}
                       ></span>
                       <span
-                        class="fa fa-star checked"
+                        className="fa fa-star checked"
                         style={ratingStar}
                       ></span>
                       <span
-                        class="fa fa-star checked"
+                        className="fa fa-star checked"
                         style={ratingStar}
                       ></span>
-                      <span class="fa fa-star" style={ratingStar}></span>
-                      <span class="fa fa-star"></span>
+                      <span className="fa fa-star" style={ratingStar}></span>
+                      <span className="fa fa-star"></span>
                     </button>
                     <p className="mt-2">Based on 9 customer ratings.</p>
                   </div>
@@ -388,7 +394,7 @@ export default function ViewMore() {
                     <span>3 Star</span>
                     <div className="progress ">
                       <div
-                        class="progress-bar bg-success"
+                        className="progress-bar bg-success"
                         role="progressbar"
                         // style="width: 25%"
                         style={{ width: "75%" }}
@@ -398,9 +404,9 @@ export default function ViewMore() {
                       ></div>
                     </div>
                     <span>2 Star</span>
-                    <div class="progress mt-2">
+                    <div className="progress mt-2">
                       <div
-                        class="progress-bar bg-info"
+                        className="progress-bar bg-info"
                         role="progressbar"
                         // style="width: 50%"
                         style={{ width: "50%" }}
@@ -410,9 +416,9 @@ export default function ViewMore() {
                       ></div>
                     </div>
                     <span>1 Star</span>
-                    <div class="progress mt-2">
+                    <div className="progress mt-2">
                       <div
-                        class="progress-bar bg-warning"
+                        className="progress-bar bg-warning"
                         role="progressbar"
                         // style="width: 75%"
                         style={{ width: "25%" }}
@@ -422,9 +428,9 @@ export default function ViewMore() {
                       ></div>
                     </div>
                     <span>No Star</span>
-                    <div class="progress mt-2">
+                    <div className="progress mt-2">
                       <div
-                        class="progress-bar bg-danger"
+                        className="progress-bar bg-danger"
                         role="progressbar"
                         // style="width: 100%"
                         style={{ width: "0%" }}
@@ -439,19 +445,19 @@ export default function ViewMore() {
                       <div className="p-1 mb-3">
                         {" "}
                         <span
-                          class="fa fa-star checked "
+                          className="fa fa-star checked "
                           style={ratingStar}
                         ></span>
                         <span
-                          class="fa fa-star checked"
+                          className="fa fa-star checked"
                           style={ratingStar}
                         ></span>
                         <span
-                          class="fa fa-star checked"
+                          className="fa fa-star checked"
                           style={ratingStar}
                         ></span>
-                        <span class="fa fa-star" style={ratingStar}></span>
-                        <span class="fa fa-star"></span>
+                        <span className="fa fa-star" style={ratingStar}></span>
+                        <span className="fa fa-star"></span>
                       </div>
                       <button className="btn btn-outline-success bg-light text-dark">
                         Write a Product Review

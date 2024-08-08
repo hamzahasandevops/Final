@@ -1,6 +1,29 @@
 
 
+.product-cell {
+  display: flex;
+  align-items: center;
+}
 
+.product-image {
+  max-width: 100px;
+  height: auto;
+  margin-right: 10px;
+  /* Space between image and product name */
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.price-cell {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.quantity-cell {
+  text-align: center;
+}
 
 
 

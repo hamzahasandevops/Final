@@ -95,7 +95,7 @@ export default function MediCategory() {
   }, 300); // Debounce time of 300ms
 
   return (
-    <div>
+    <div className="">
       <div style={{ backgroundColor: "#dc3545" }}>
         <img src={Banner} height="100px" width="100%" alt="Banner" />
       </div>
@@ -120,7 +120,11 @@ export default function MediCategory() {
       </div>
       {isLoading && (
         <div className="loader">
-          {/* Replace with your loader component or spinner */}
+          <div class="text-center">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
           Loading...
         </div>
       )}

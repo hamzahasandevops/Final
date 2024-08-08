@@ -1,7 +1,6 @@
 import { Autocomplete, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { useContext, createContext } from "react";
-import ResultProduct from "../../../Components/ResultProduct";
+
 import { motion, AnimatePresence } from "framer-motion";
 import MobMediResult from "./MobMediResult";
 // const UserContext = createContext();
@@ -105,6 +104,7 @@ const formbutton = {
   height: "60px",
   fontSize: "22px",
   borderRadius: "50%",
+  marginLeft: "130px",
 };
 export default function MobileSearch() {
   const [query, setQuery] = useState("");
@@ -147,7 +147,7 @@ export default function MobileSearch() {
     <div className="container mt-3">
       <div className="d-flex container">
         <form
-          className="d-flex mx-2 "
+          className="d-flex mx-2 flex-wrap" // Added flex-wrap for responsiveness
           onSubmit={(e) => {
             e.preventDefault();
             handleSearch();
@@ -168,11 +168,9 @@ export default function MobileSearch() {
                   ...params.InputProps,
                   style: {
                     border: "1px solid #007bff",
-
                     fontSize: "16px",
                     transition: "all 0.3s ease",
-
-                    width: "430px",
+                    width: "200%", // Adjusted width to fill the container
                     outline: "none",
                     paddingLeft: "30px",
                     fontStyle: "italic",
@@ -185,12 +183,12 @@ export default function MobileSearch() {
               />
             )}
           />
-          <button className="btn  " type="submit" style={formbutton}>
+          <button className="btn" type="submit" style={formbutton}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
       </div>
-      <div>
+      <div className="d-flex container">
         {filteredData1.length > 0 && query.length > 0
           ? filteredData1.map((d) => (
               <motion.div

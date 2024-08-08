@@ -1,4 +1,7 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import "../../Styles/MediHero.css";
+
 import "../../Styles/MediHero.css";
 import H1 from "../../Assets/H1.webp";
 import H2 from "../../Assets/H2.webp";
@@ -22,29 +25,33 @@ import H19 from "../../Assets/H19.webp";
 import H20 from "../../Assets/H20.webp";
 
 const items = [
-  { src: H1, label: "Homeopathy" },
-  { src: H2, label: "Ayurveda" },
-  { src: H3, label: "Unani" },
-  { src: H4, label: "Allopathy" },
-  { src: H5, label: "Nutrition" },
-  { src: H6, label: "Sexual wellness" },
-  { src: H7, label: "Multivitamins & Minerals" },
-  { src: H7, label: "Sugar Substitute" }, // Adjust label if different image
-  { src: H8, label: "Hair Care" },
-  { src: H9, label: "Health Food & Drinks" },
-  { src: H10, label: "Skin Care" },
-  { src: H11, label: "Essential oils" },
-  { src: H12, label: "Baby Care" },
-  { src: H13, label: "Baby Care" },
-  { src: H14, label: "Baby Care" },
-  { src: H15, label: "Baby Care" },
-  { src: H16, label: "Baby Care" },
-  { src: H17, label: "Baby Care" },
-  { src: H19, label: "Baby Care" },
-  { src: H20, label: "Baby Care" },
+  { src: H1, label: "Homeopathy", id: 1 },
+  { src: H2, label: "Ayurveda", id: 2 },
+  { src: H3, label: "Unani", id: 3 },
+  { src: H4, label: "Allopathy", id: 4 },
+  { src: H5, label: "Nutrition", id: 5 },
+  { src: H6, label: "Sexual Wellness", id: 6 },
+  { src: H7, label: "Multivitamins & Minerals", id: 7 },
+  { src: H7, label: "Sugar Substitute", id: 8 },
+  { src: H8, label: "Hair Care", id: 9 },
+  { src: H9, label: "Health Food & Drinks", id: 10 },
+  { src: H10, label: "Skin Care", id: 11 },
+  { src: H11, label: "Essential Oils", id: 12 },
+  { src: H12, label: "Baby Care - General", id: 13 },
+  { src: H13, label: "Baby Care - Specific", id: 14 },
+  { src: H14, label: "Baby Care - Premium", id: 15 },
+  { src: H15, label: "Baby Care - Organic", id: 16 },
+  { src: H16, label: "Baby Care - Natural", id: 17 },
+  { src: H17, label: "Baby Care - Advanced", id: 18 },
+  { src: H19, label: "Baby Care - Sensitive", id: 19 },
+  { src: H20, label: "Baby Care - Eco-Friendly", id: 20 },
 ];
-export default function MediHero() {
+
+// Import other images as needed
+
+const MediHero = () => {
   const sliderRef = useRef(null);
+
   const handleNext = () => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({
@@ -62,8 +69,9 @@ export default function MediHero() {
       });
     }
   };
+
   return (
-    <div className="container-fluid  mb-5">
+    <div className="container-fluid mb-5">
       <div className="slider-container">
         <button
           className="slider-control prev"
@@ -76,8 +84,10 @@ export default function MediHero() {
           <div className="slider-content">
             {items.map((item, index) => (
               <div key={index} className="slider-item">
-                <img src={item.src} alt={item.label} />
-                <p style={{ flexWrap: "wrap" }}>{item.label}</p>
+                <Link to={`/category/${item.id}`}>
+                  <img src={item.src} alt={item.label} />
+                  <p style={{ flexWrap: "wrap" }}>{item.label}</p>
+                </Link>
               </div>
             ))}
           </div>
@@ -92,4 +102,6 @@ export default function MediHero() {
       </div>
     </div>
   );
-}
+};
+
+export default MediHero;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
@@ -11,15 +10,13 @@ import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Profile from "./Profile";
-import { IconButton, Tooltip, TextField, Autocomplete } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import { CartContext } from "./Features/ContextProvider";
 import { useContext } from "react";
 
-function Navbar({ query, setQuery, handleSearch, techData }) {
+function Navbar() {
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  // const [inputValue, setInputValue] = useState(query);
-  // const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const { cart } = useContext(CartContext);
 
   const openNav = () => {
@@ -36,85 +33,13 @@ function Navbar({ query, setQuery, handleSearch, techData }) {
     }
   };
 
-  // const suggestions = techData.map((d) => d.title);
-
-  // // Filter suggestions based on input value
-  // const handleInputChange = (event, newInputValue) => {
-  //   setInputValue(newInputValue || "");
-  //   setQuery((newInputValue || "").toLowerCase());
-
-  //   // Filter the suggestions based on the input value
-  //   const newFilteredSuggestions = suggestions.filter((suggestion) =>
-  //     suggestion.toLowerCase().includes((newInputValue || "").toLowerCase())
-  //   );
-
-  //   setFilteredSuggestions(newFilteredSuggestions);
-  // };
-
-  // const handleSelect = (event, newValue) => {
-  //   setInputValue(newValue || "");
-  //   setQuery((newValue || "").toLowerCase());
-  //   handleSearch(); // Trigger search
-  // };
-
   return (
     <div className="navbar-section">
       <h1 className="navbar-title">
         <Link to="/">Medicine</Link>
       </h1>
 
-      {/* Search Input with Autocomplete */}
-      {/* <div
-          style={{ width: "136px" }}
-          className="d-none d-sm-none d-md-none d-lg-block"
-        >
-          <form
-            className="d-flex"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSearch();
-            }}
-          >
-            <Autocomplete
-              freeSolo
-              options={filteredSuggestions}
-              value={inputValue}
-              onChange={handleSelect}
-              onInputChange={handleInputChange}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  variant="outlined"
-                  placeholder="Search Garcinia"
-                  InputProps={{
-                    ...params.InputProps,
-                    style: {
-                      borderRadius: "50px",
-                      border: "1px solid #007bff",
-                      padding: "12px 20px",
-                      fontSize: "16px",
-                      transition: "all 0.3s ease",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      width: "330px",
-                      outline: "none",
-                      fontStyle: "italic",
-                      borderColor: "#007bff",
-                      background: "linear-gradient(145deg, #ffffff, #f1f3f5)",
-                      marginRight: "10px",
-                      boxSizing: "border-box",
-                    },
-                  }}
-                />
-              )}
-            />
-            <button className="btn-advanced" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div> */}
-      {/* //navbar */}
-
-      {/* Desktop */}
+      {/* Desktop Navigation */}
       <ul className="navbar-items">
         <li>
           <Link to="/" className="navbar-links">
@@ -128,7 +53,6 @@ function Navbar({ query, setQuery, handleSearch, techData }) {
         </li>
         <li>
           <a href="#about" className="navbar-links">
-            {/* About */}
             Deal of The Day
           </a>
         </li>
@@ -145,18 +69,9 @@ function Navbar({ query, setQuery, handleSearch, techData }) {
         <li>
           <Profile />
         </li>
-
         <li>
           <Link to="/cart">
-            <Tooltip
-              title={
-                cart.length < 1 ? (
-                  <h3 className="cart px-3">Cart is empty</h3>
-                ) : (
-                  ""
-                )
-              }
-            >
+            <Tooltip title={cart.length < 1 ? "Cart is empty" : ""}>
               <IconButton>
                 <ShoppingCartIcon />
               </IconButton>
@@ -166,6 +81,55 @@ function Navbar({ query, setQuery, handleSearch, techData }) {
         </li>
       </ul>
 
+      {/* Mobile Navigation */}
+      <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
+        <div className="mobile-navbar-close" onClick={openNav}>
+          <FontAwesomeIcon icon={faXmark} className="hamb-icon" />
+        </div>
+        <ul className="mobile-navbar-links">
+          <li>
+            <Link to="/" onClick={openNav}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <a href="#services" onClick={openNav}>
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#about" onClick={openNav}>
+              Deal of The Day
+            </a>
+          </li>
+          <li>
+            <a href="#reviews" onClick={openNav}>
+              Reviews
+            </a>
+          </li>
+          <li>
+            <a href="#doctors" onClick={openNav}>
+              Feature Brand
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={openNav}>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Mobile Navigation Hamburger Icon */}
+      <div className="mobile-nav">
+        <FontAwesomeIcon
+          icon={faBars}
+          onClick={openNav}
+          className="hamb-icon"
+        />
+      </div>
+
+      {/* Live Chat Button */}
       <button
         className="navbar-btn"
         type="button"
@@ -174,79 +138,6 @@ function Navbar({ query, setQuery, handleSearch, techData }) {
       >
         <FontAwesomeIcon icon={faCommentDots} /> Live Chat
       </button>
-
-      {/* Mobile */}
-      <div className="d-flex" style={{ position: "relative", left: "100px" }}>
-        <div className=" d-block d-sm-none  d-lg-none d-md-block">
-          <Link to="/cart">
-            <Tooltip
-              title={
-                cart.length < 1 ? (
-                  <h3 className="cart px-3">Cart is empty</h3>
-                ) : (
-                  ""
-                )
-              }
-            >
-              <IconButton>
-                <ShoppingCartIcon />
-              </IconButton>
-            </Tooltip>
-          </Link>
-          {cart.length}
-        </div>
-        <div className=" d-block d-sm-none d-lg-none d-md-block">
-          <Profile />
-        </div>
-      </div>
-      <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
-        <div onClick={openNav} className="mobile-navbar-close">
-          <FontAwesomeIcon icon={faXmark} className="hamb-icon" />
-        </div>
-
-        <ul className="mobile-navbar-links">
-          <li>
-            <Link onClick={openNav} to="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <a onClick={openNav} href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#about">
-              Deal of The Day
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#reviews">
-              Reviews
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#doctors">
-              Feature Brand
-            </a>
-          </li>
-
-          <li>
-            <a onClick={openNav} href="#contact">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* Hamburger Icon */}
-      <div className="mobile-nav">
-        <FontAwesomeIcon
-          icon={faBars}
-          onClick={openNav}
-          className="hamb-icon"
-        />
-      </div>
     </div>
   );
 }

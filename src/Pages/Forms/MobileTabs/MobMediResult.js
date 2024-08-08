@@ -10,11 +10,11 @@ export default function MobMediResult({ product }) {
       <div className="col-sm-12  col-xs-12  d-flex justify-content-center align-items-center flex-column ">
         <img
           src={product.images}
-          width="100px"
-          height="100px"
+          width="200px"
+          height="150px"
           style={{ marginTop: "10px" }}
         />
-        <p class="card-text mt-3">
+        <p className="card-text mt-3">
           MRP <del className="fs-5">₹{product.old_mrp}</del>
           {"     "}
           <ins className="text-decoration-none fs-4">₹{product.new_mrp}</ins>
@@ -22,11 +22,11 @@ export default function MobMediResult({ product }) {
       </div>
 
       <div className="col-sm-12  col-12 col-xs-12 col-md-12 overflow-auto">
-        <div class="card-body d-flex flex-column  justify-content-between overflow-auto">
+        <div className="card-body d-flex flex-column  justify-content-between overflow-auto">
           <h3 className="about-title mt-3 py-3">
             <span style={{ flexWrap: "wrap" }}>{product.title}</span>
           </h3>
-          <h5 class="card-title mt-2"> {product.desc}</h5>
+          <h5 className="card-title mt-2"> {product.desc}</h5>
         </div>
         <div className="d-flex   w-100  justify-content-start">
           <button

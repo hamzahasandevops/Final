@@ -14,7 +14,7 @@ export default function TrendMed() {
     {
       id: 14,
       offPrice: "10% OFF",
-      images:
+      image:
         "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Wine Beauty Trio Complex Cleanser",
       old_mrp: "170",
@@ -26,7 +26,7 @@ export default function TrendMed() {
     {
       id: 15,
       offPrice: "10% OFF",
-      images:
+      image:
         "https://th.bing.com/th?id=OIP.rkrsuJM78EClJS0V9CCiBgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Utronin Drops",
       old_mrp: "175",
@@ -38,7 +38,7 @@ export default function TrendMed() {
     {
       id: 16,
       offPrice: "10% OFF",
-      images:
+      image:
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Colin Oral Drop",
       old_mrp: "175",
@@ -50,7 +50,7 @@ export default function TrendMed() {
     {
       id: 17,
       offPrice: "10% OFF",
-      images:
+      image:
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Colin Oral Drop",
       old_mrp: "175",
@@ -62,7 +62,7 @@ export default function TrendMed() {
     {
       id: 18,
       offPrice: "10% OFF",
-      images:
+      image:
         "https://th.bing.com/th?id=OIP.0jTnbLsrhqN6HiEKBQOAigHaHx&w=243&h=256&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Thyroidinumn Tablet 3X",
       old_mrp: 131,
@@ -74,7 +74,7 @@ export default function TrendMed() {
     {
       id: 19,
       offPrice: "10% OFF",
-      images:
+      image:
         "https://th.bing.com/th?id=OIP.N7phy6XqEWVCEF6xjAjr_wAAAA&w=206&h=302&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       title: "Colin Oral Drop",
       old_mrp: "175",
@@ -139,7 +139,7 @@ export default function TrendMed() {
                       transition: "0.2s linear",
                       backgroundPosition: "contain",
                     }}
-                    image={d.images}
+                    image={d.image}
                     title="green iguana"
                     className="card-nav"
                   />

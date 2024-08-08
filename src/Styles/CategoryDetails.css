@@ -1,0 +1,15 @@
+.card-products {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 20px;
+    /* Adjust padding as needed */
+}
+
+.card {
+    flex: 0 0 auto;
+    /* Ensures cards do not grow */
+    margin-right: 20px;
+    /* Adjust margin between cards */
+    min-width: 300px;
+    /* Minimum width of each card */
+}

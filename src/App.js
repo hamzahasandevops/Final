@@ -15,6 +15,7 @@ import MobileSearch from "./Pages/Forms/MobileTabs/MobileSearch";
 
 import MediCategory from "./Pages/Forms/MobileTabs/MediCategory";
 import ItemDetail from "./Pages/Forms/MobileTabs/ItemDetail";
+import CategoryDetailsPc from "./Pages/CategoryPc/CategoryDetailsPc";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/mobilesearch" element={<MobileSearch />} />
           <Route path="/mobilecategory" element={<MediCategory />} />
           <Route path="/item/:id" element={<ItemDetail />} />
+          <Route path="/category/:id" element={<CategoryDetailsPc />} />
           {/* //this is for reading data from db */}
           <Route path="/fetching" element={<Fetching />} />
 

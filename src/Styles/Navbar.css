@@ -273,3 +273,8 @@
 }
 
 
+@media (max-width: 568px) {
+    .navcart {
+        margin-right: 100px;
+    }
+}

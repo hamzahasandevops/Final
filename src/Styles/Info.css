@@ -117,13 +117,15 @@
         /* Two cards per row with spacing */
     }
 }
-@media (min-width: 568px) {
+@media (max-width: 568px) {
 
 
     .info-card {
-        width: 550px;
+        width: 850px;
+      margin-top: 20px;
         /* Two cards per row with spacing */
     }
+    
 }
 @media (min-width: 768px) {
 

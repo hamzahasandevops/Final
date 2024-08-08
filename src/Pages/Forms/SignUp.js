@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Back from "../../Assets/doctor-book-appointment.png";
 
 export default function SignUp() {
-  const Navigate = useNavigate();
-
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -23,6 +21,16 @@ export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [file, setFile] = useState(null);
+
+  const handleChange = (event) => {
+    const { name, value, type, files } = event.target;
+    if (type === "file") {
+      setFile(files[0]);
+    } else {
+      setValues({ ...values, [name]: value });
+      validateField(name, value);
+    }
+  };
 
   const validateField = (name, value) => {
     switch (name) {
@@ -77,16 +85,6 @@ export default function SignUp() {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value, type, files } = event.target;
-    if (type === "file") {
-      setFile(files[0]);
-    } else {
-      setValues({ ...values, [name]: value });
-      validateField(name, value);
-    }
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -121,7 +119,8 @@ export default function SignUp() {
       .then((res) => {
         setSuccessMessage("Form submission successful");
         setTimeout(() => {
-          Navigate("/"); // Redirect after 2 seconds
+          // Redirect after 2 seconds
+          window.location.replace("/");
         }, 2000);
       })
       .catch((err) => {
@@ -132,7 +131,7 @@ export default function SignUp() {
     setErrorMessage(""); // Clear error message
   };
 
-  // Inline styles
+  // Styles
   const containerStyle = {
     maxWidth: "1100px",
     margin: "auto",
@@ -144,7 +143,7 @@ export default function SignUp() {
     overflow: "hidden",
     fontFamily: "Arial, sans-serif",
     color: "#333",
-    marginTop: "120px",
+    marginTop: "10px",
   };
 
   const formGroupStyle = {
@@ -203,13 +202,37 @@ export default function SignUp() {
   };
 
   return (
-    <div style={containerStyle} className="d-flex justify-content-around">
-      <div>
-        <img src={Back} />
+    <div
+      style={containerStyle}
+      className="d-flex flex-column flex-md-row justify-content-around align-items-center"
+    >
+      {/* Image column for larger devices */}
+      <div className="d-none d-md-block">
+        <img
+          src={Back}
+          alt="Background"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
       </div>
 
-      <form onSubmit={handleSubmit}>
+      {/* Form column */}
+      <form onSubmit={handleSubmit} className="w-100">
+        {/* Background image for mobile devices */}
+        <div
+          className="d-md-none mb-4"
+          style={{
+            backgroundImage: `url(${Back})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "300px" /* Adjust height as needed */,
+            marginBottom: "20px" /* Space between image and form */,
+            borderRadius: "8px" /* Rounded corners */,
+          }}
+        />
+
         <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Sign Up</h1>
+
+        {/* Name */}
         <div style={formGroupStyle}>
           <input
             type="text"
@@ -228,6 +251,7 @@ export default function SignUp() {
           {errors.name && <div style={errorStyle}>{errors.name}</div>}
         </div>
 
+        {/* Email */}
         <div style={formGroupStyle}>
           <input
             type="email"
@@ -246,6 +270,7 @@ export default function SignUp() {
           {errors.email && <div style={errorStyle}>{errors.email}</div>}
         </div>
 
+        {/* Password */}
         <div style={formGroupStyle}>
           <input
             type="password"
@@ -264,6 +289,7 @@ export default function SignUp() {
           {errors.password && <div style={errorStyle}>{errors.password}</div>}
         </div>
 
+        {/* Mobile */}
         <div style={formGroupStyle}>
           <input
             type="tel"
@@ -282,6 +308,7 @@ export default function SignUp() {
           {errors.mobile && <div style={errorStyle}>{errors.mobile}</div>}
         </div>
 
+        {/* File Upload */}
         <div style={formGroupStyle}>
           <input
             type="file"
@@ -291,6 +318,7 @@ export default function SignUp() {
           />
         </div>
 
+        {/* Submit Button */}
         <input
           type="submit"
           className="btn btn-primary"
@@ -299,13 +327,13 @@ export default function SignUp() {
           onMouseEnter={(e) => (e.target.style.backgroundColor = "#0056b3")}
           onMouseLeave={(e) => (e.target.style.backgroundColor = "#007bff")}
         />
-      </form>
 
-      {/* Display error and success messages */}
-      {errorMessage && <div style={errorMessageStyle}>{errorMessage}</div>}
-      {successMessage && (
-        <div style={successMessageStyle}>{successMessage}</div>
-      )}
+        {/* Display error and success messages */}
+        {errorMessage && <div style={errorMessageStyle}>{errorMessage}</div>}
+        {successMessage && (
+          <div style={successMessageStyle}>{successMessage}</div>
+        )}
+      </form>
     </div>
   );
 }

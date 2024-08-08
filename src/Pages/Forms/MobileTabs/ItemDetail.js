@@ -4,292 +4,32 @@ import { useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import data from "../../../Assets/Dysomin.jpg";
+import { itemDetails } from "../../../Scripts/data";
 import { CartContext } from "../../../Components/Features/ContextProvider";
 import Footer from "../../../Components/Footer";
-
-const itemDetails = {
-  1: {
-    title: "Homeopathy",
-    description: "Details about Homeopathy",
-    image: "https://static.oxinis.com/healthmug/image/asset/2504-ok.webp",
-    images: [
-      "https://static.oxinis.com/healthmug/image/asset/3743-iu.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3745-ex.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-    ],
-
-    img: [
-      "https://static.oxinis.com/healthmug/image/asset/3622-qf.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3623-pe.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3624-gq.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3625-lp.webp",
-    ],
-
-    products: [
-      {
-        id: 20,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      {
-        id: 21,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      {
-        id: 22,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      {
-        id: 23,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      {
-        id: 24,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      {
-        id: 25,
-        title: "Garcinia combogia",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      // Add more products as needed
-    ],
-  },
-  2: {
-    title: "Ayurveda",
-    description: "Details about Ayurveda",
-    image: "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-    images: [
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2387-gq.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2504-ok.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-    ],
-    img: [
-      "https://static.oxinis.com/healthmug/image/asset/3622-qf.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3623-pe.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3624-gq.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3625-lp.webp",
-    ],
-    products: [
-      {
-        id: 26,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        ml: [20, 30, 100, 1000],
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        Discount: 10,
-      },
-      {
-        id: 27,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 28,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 29,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 30,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 31,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
-      },
-      // Add more products as needed
-    ],
-  },
-  3: {
-    title: "Unani",
-    description: "Details about Unani",
-    image: "https://static.oxinis.com/healthmug/image/asset/2387-gq.webp",
-    images: [
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2387-gq.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2387-gq.webp",
-      "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
-    ],
-    img: [
-      "https://static.oxinis.com/healthmug/image/asset/3622-qf.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3623-pe.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3624-gq.webp",
-      "https://static.oxinis.com/healthmug/image/asset/3625-lp.webp",
-    ],
-    products: [
-      {
-        id: 32,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 33,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 34,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 35,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        new_mrp: 118,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        quantity: 1,
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-      },
-      {
-        id: 36,
-        title: "Garcinia combogia",
-        offPrice: "10% OFF",
-        old_mrp: 131,
-        new_mrp: 118,
-        quantity: 1,
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        Discount: 10,
-        ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
-      },
-    ],
-  },
-};
 
 const ItemDetail = () => {
   const { id } = useParams();
   const item = itemDetails[id];
   const { dispatch } = useContext(CartContext);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 5; // Number of products per page
+
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    // Initialize filtered products with all products
+    setFilteredProducts(item.products);
+  }, [item.products]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const newIndex = (activeIndex + 1) % item.images.length;
       setActiveIndex(newIndex);
-    }, 2000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [activeIndex, item]);
@@ -317,8 +57,7 @@ const ItemDetail = () => {
     }
     return chunkedArray;
   };
-
-  const chunkedProducts = chunkArray(item.products, 6);
+  const chunkedProducts = chunkArray(filteredProducts, 12).slice(0, 1);
 
   //for banner curousel
   const settings = {
@@ -351,8 +90,23 @@ const ItemDetail = () => {
     ],
   };
 
+  //for pagination
+
+  // Calculate indexes for the current page
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = item.products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  // Function to handle page change
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
-    <div>
+    <div className="d-flex flex-column justify-content-center align-items-center ">
       <div style={handleImage}>
         <div
           className="carousel slide"
@@ -363,7 +117,7 @@ const ItemDetail = () => {
             padding: "20px",
           }}
           id="carouselExampleIndicators"
-          data-ride="carousel"
+          data-ride="false" // Disable automatic cycling
         >
           <div
             className="carousel-inner"
@@ -488,11 +242,82 @@ const ItemDetail = () => {
             </Slider>
           </div>
         </div>
+
+        <div className="all-product py-3 mt-4">
+          <div
+            className="title py-2 px-2"
+            style={{
+              fontSize: "20px",
+              fontWeight: "500",
+              backgroundColor: "#f0f0f0",
+              textAlign: "center",
+              height: "45px",
+              textAlign: "start",
+              marginBottom: "20px",
+              borderRadius: "5px",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <h5>ALL THE {item.title.toUpperCase()} PRODUCTS</h5>
+          </div>
+
+          <div
+            className="d-flex flex-nowrap overflow-auto"
+            style={{ overflowX: "auto" }}
+          >
+            {currentProducts.map((d, index) => (
+              <div
+                className="card mr-3"
+                key={index}
+                style={{ minWidth: "250px", maxWidth: "300px" }}
+              >
+                <img className="card-img-top" src={d.image} alt="Product" />
+                <div className="card-body">
+                  <h4 className="card-title">{d.title}</h4>
+
+                  <p className="card-text">${d.new_mrp}</p>
+                  <a
+                    className="btn btn-light border border-2"
+                    onClick={() => dispatch({ type: "ADD", d: d })}
+                  >
+                    ADD TO CART
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          {/* Pagination controls */}
+          <nav>
+            <ul className="pagination justify-content-center">
+              {item.products.length > productsPerPage &&
+                Array(Math.ceil(item.products.length / productsPerPage))
+                  .fill()
+                  .map((_, index) => (
+                    <li
+                      key={index}
+                      className={`page-item ${
+                        currentPage === index + 1 ? "active" : ""
+                      }`}
+                    >
+                      <button
+                        onClick={() => paginate(index + 1)}
+                        className="page-link"
+                      >
+                        {index + 1}
+                      </button>
+                    </li>
+                  ))}
+            </ul>
+          </nav>
+        </div>
+
         <div
           className=" container-fluid  mt-5 p-2 border border-2 bg-dark text-light"
           style={bannerImage}
         >
-          <h1>MedicineCare.in +</h1>
+          <h1>{item.title}Care.in +</h1>
         </div>
       </div>
     </div>

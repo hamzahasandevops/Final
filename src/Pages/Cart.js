@@ -89,8 +89,7 @@ export default function Cart() {
       <div>
         <Header />
       </div>
-
-      <div className=" d-flex row container m-auto flex-sm-row flex-md-column flex-sm-row flex-lg-row">
+      <div className=" d-none d-lg-block d-md-block d-xs-block row container m-auto flex-sm-row flex-md-column flex-sm-row flex-lg-row">
         {cart.length < 1 ? (
           <p className="mt-5 p-5 bg-light border border-1 rounded">
             <span>Empty Cart Go To Shoping </span>
@@ -121,7 +120,7 @@ export default function Cart() {
                       </tr>
                       <tr>
                         <td style={{ padding: "10px" }}>
-                          <img src={c.images} height="100px" width="100px" />
+                          <img src={c.image} height="100px" width="100px" />
                         </td>
 
                         <td>
@@ -231,6 +230,97 @@ export default function Cart() {
             </div>{" "}
           </>
         )}
+      </div>
+      <div className="container d-block d-sm-none d-lg-none d-md-none d-xl-none">
+        <>
+          <table className="table table-striped table-bordered">
+            <tbody>
+              {cart.map((c, index) => (
+                <thead className="thead-dark">
+                  <tr>
+                    <th scope="col">Products</th>
+                    <th scope="col">title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                  </tr>
+                  <tr key={index}>
+                    <td className="product-cell d-flex flex-column">
+                      <img
+                        src={c.image}
+                        alt="Product Image"
+                        className="img-fluid product-image"
+                      />{" "}
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        onChange={() => handleCheckboxChange(c.id, c.new_mrp)}
+                      />
+                    </td>
+                    <td className="price-cell py-4">
+                      <p className="product-name">{c.title}</p>
+                    </td>
+                    <td className="price-cell py-4">${c.new_mrp}</td>
+                    <td className="quantity-cell py-4 bg-light">
+                      <div className="d-flex  align-items-center">
+                        <button
+                          className="btn btn-light "
+                          disabled={true}
+                          type="button"
+                          class="btn btn-light rounded"
+                          data-toggle="tooltip"
+                          data-html="true"
+                          title="Delete"
+                          onClick={() => removeItem(c.id)}
+                        >
+                          <i class="fa-solid fa-trash text-danger"></i>
+                        </button>
+                        <p className="mt-3"> {c.quantity} </p>
+                      </div>
+                      <div className="d-flex">
+                        <button
+                          className="btn btn-light "
+                          onClick={() => increase(c.id)}
+                        >
+                          +
+                        </button>
+                        <button
+                          className="btn btn-light "
+                          onClick={() => decrease(c.id)}
+                        >
+                          -
+                        </button>
+                      </div>
+                    </td>
+                  </tr>{" "}
+                </thead>
+              ))}
+            </tbody>
+          </table>
+        </>
+      </div>{" "}
+      <div className="d-flex d-sm-none d-lg-none d-xl-none d-md-none">
+        <div className=" mt-1 mt-4 p-4">
+          <p>Total Items:{totalItem(cart)}</p>
+          <p>Total price:₹ {totalPrice(cart)}</p>{" "}
+          <button className="btn btn-primary">checkout</button>
+        </div>{" "}
+        <div className=" mt-3 px-4">
+          <h4>Selected Items</h4>
+          {selectedItems.length === 0 ? (
+            <p>No items selected.</p>
+          ) : (
+            <ul>
+              {selectedItems.map((item) => (
+                <li key={item.id}>
+                  ID: {item.id}, MRP: ₹{item.mrp}
+                </li>
+              ))}
+            </ul>
+          )}{" "}
+          <p>
+            <strong>Total Price (Selected Items): ₹ {getTotalPrice}</strong>
+          </p>
+        </div>
       </div>
     </>
   );

@@ -110,7 +110,7 @@ export default function MinNav({ query, setQuery, handleSearch, techData }) {
                       fontSize: "16px",
                       transition: "all 0.3s ease",
 
-                      width: "430px",
+                      width: "330px",
                       outline: "none",
                       paddingLeft: "30px",
                       fontStyle: "italic",

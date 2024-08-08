@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Back from "../../Assets/doctor-book-appointment.png";
-import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Form() {
   const [values, setValues] = useState({
@@ -11,7 +11,10 @@ export default function Form() {
   });
 
   const handleChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
+    setValues((prevValues) => ({
+      ...prevValues,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   const handleSubmit = (event) => {
@@ -19,132 +22,172 @@ export default function Form() {
     axios
       .post("http://localhost:8000/users", values)
       .then((res) => {
-        console.log("ho gva be", res.data);
+        console.log("Data posted successfully:", res.data);
+        // Handle redirection or any other action after successful submission
         setTimeout(() => {
-          Navigate("/");
-        }, 2000);
+          window.location.replace("/"); // Example: Redirect to homepage
+        }, 2000); // Delay for 2 seconds
       })
       .catch((err) => {
-        throw err;
+        console.error("Error posting data:", err);
       });
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "600px",
-        width: "1170px",
-        margin: "auto",
-        marginTop: "120px",
-        backgroundColor: "skyblue",
-
-        borderRadius: "8px",
-        overflow: "hidden", // Ensure rounded corners clip background image properly
-      }}
-    >
-      <div
-        style={{
-          flex: "1",
-          background: `url(${Back})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <div
-        style={{
-          flex: "1",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: "60px",
-        }}
-      >
-        <h1
-          style={{
-            textAlign: "center",
-            color: "#333",
-            marginBottom: "20px",
-          }}
-        >
-          Login
-        </h1>
+    <div className="container-fluid p-0">
+      {/* Content for small devices */}
+      <div className="d-md-none">
         <div
           style={{
-            backgroundColor: "#fff",
-            padding: "20px",
-            borderRadius: "8px",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-            padding: "50px",
+            backgroundImage: `url(${Back})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: "20px" }}>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter your name here"
-                name="name"
-                value={values.name}
-                onChange={handleChange}
-                style={inputStyle}
-              />
+          <div className="container">
+            <div className="card shadow-lg border-0">
+              <div className="card-body p-5">
+                <h1 className="text-center mb-4">Login</h1>
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control py-4 px-5"
+                      placeholder="Enter your name here"
+                      name="name"
+                      value={values.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      className="form-control py-4 px-5"
+                      placeholder="Enter your email here"
+                      name="email"
+                      value={values.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="password"
+                      className="form-control py-4 px-5"
+                      placeholder="Enter Password"
+                      name="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="d-grid gap-2">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block py-3"
+                      style={{ fontSize: "18px", fontWeight: "bold" }}
+                    >
+                      Submit
+                    </button>
+                    <Link to="/signup">
+                      <button
+                        type="button"
+                        className="btn btn-secondary btn-block py-3"
+                        style={{ fontSize: "18px", fontWeight: "bold" }}
+                      >
+                        Sign Up
+                      </button>
+                    </Link>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div style={{ marginBottom: "20px" }}>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Enter your email here"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </div>
-            <div style={{ marginBottom: "20px" }}>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Enter Password"
-                name="password"
-                value={values.password}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </div>
-            <input
-              type="submit"
-              className="btn btn-primary"
-              value="Submit"
-              style={buttonStyle}
+          </div>
+        </div>
+      </div>
+
+      {/* Content for large devices */}
+      <div className="container p-3 d-none d-lg-block">
+        <div className="row">
+          {/* Image column for large devices */}
+          <div className="col-lg-4">
+            <div
+              style={{
+                backgroundImage: `url(${Back})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "50vh",
+              }}
             />
-          </form>
+          </div>
+          {/* Form column for large devices */}
+          <div className="col-lg-8">
+            <div className="card shadow-lg border-0">
+              <div className="card-body p-5">
+                <h1 className="text-center mb-4">Login</h1>
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control py-4 px-5"
+                      placeholder="Enter your name here"
+                      name="name"
+                      value={values.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      className="form-control py-4 px-5"
+                      placeholder="Enter your email here"
+                      name="email"
+                      value={values.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="password"
+                      className="form-control py-4 px-5"
+                      placeholder="Enter Password"
+                      name="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="d-grid gap-2">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block py-3"
+                      style={{ fontSize: "18px", fontWeight: "bold" }}
+                    >
+                      Submit
+                    </button>
+                    <Link to="/signup">
+                      <button
+                        type="button"
+                        className="btn btn-secondary btn-block py-3"
+                        style={{ fontSize: "18px", fontWeight: "bold" }}
+                      >
+                        Sign Up
+                      </button>
+                    </Link>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-// Styles
-const inputStyle = {
-  width: "100%",
-  padding: "12px",
-  fontSize: "16px",
-  border: "1px solid #ccc",
-  borderRadius: "4px",
-  boxSizing: "border-box",
-};
-
-const buttonStyle = {
-  display: "inline-block",
-  padding: "12px 24px",
-  fontSize: "16px",
-  fontWeight: "bold",
-  color: "#fff",
-  backgroundColor: "#007bff",
-  border: "none",
-  borderRadius: "4px",
-  cursor: "pointer",
-  textAlign: "center",
-  textDecoration: "none",
-};

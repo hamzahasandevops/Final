@@ -11,7 +11,7 @@ import TrendMed from "../Components/TrendMed";
 import MinNav from "../Components/HeroNav/MinNav";
 import MediHero from "../Components/Medihero/MediHero";
 import FullHero from "../Components/Medihero/FullHero";
-import MobileFooter from "./MobileFooter";
+import MobileFooter from "./Forms/MobileTabs/MobileFooter";
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -122,7 +122,7 @@ function Home() {
   };
 
   return (
-    <div className="home-section">
+    <div className="home-section ">
       <MobileFooter />
       <Navbar
         query={query || ""}

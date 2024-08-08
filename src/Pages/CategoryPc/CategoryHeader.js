@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 
 import { Container } from "@mui/material";
 
-export default function Header() {
+export default function CategoryHeader() {
   return (
-    <Container sx={{ flexGrow: 1 }} maxWidth="xl" className="mt-3">
+    <Container sx={{ flexGrow: 1 }} maxWidth="xxl" className="mt-3">
       <AppBar
         position="static"
         sx={{ backgroundColor: "white", color: "black" }}
@@ -16,10 +16,7 @@ export default function Header() {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <h3 className="about-title py-3  ">
-              <span>
-                {/* About Us */}
-                Cart by Shop
-              </span>
+              <span>Categories</span>
             </h3>
           </Typography>
         </Toolbar>
