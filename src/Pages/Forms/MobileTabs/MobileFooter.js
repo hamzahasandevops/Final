@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-
 import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import CategoryIcon from "@mui/icons-material/Category";
-import ServicesIcon from "@mui/icons-material/LocalOffer";
+import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Link } from "react-router-dom";
 
 import "../../../Styles/MobileFooter.css";
-import { Link } from "react-router-dom";
-export default function MobileFooter() {
+
+const MobileFooter = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
     <Box
-      className="d-lg-none d-sm-none d-md-none "
+      className="mobile-footer-container"
       style={{
         position: "fixed",
         bottom: 0,
         left: 0,
         width: "100%",
         backgroundColor: "#ffffff",
-
         display: "flex",
         justifyContent: "space-between",
         zIndex: 1000,
@@ -37,16 +37,15 @@ export default function MobileFooter() {
           component={Link}
           to="/"
         />
-
         <BottomNavigationAction
-          label="Services"
-          icon={<CategoryIcon />}
+          label="Search"
+          icon={<SearchIcon />}
           component={Link}
           to="/mobilesearch"
         />
         <BottomNavigationAction
           label="Categories"
-          icon={<ServicesIcon />}
+          icon={<CategoryIcon />}
           component={Link}
           to="/mobilecategory"
         />
@@ -59,4 +58,6 @@ export default function MobileFooter() {
       </BottomNavigation>
     </Box>
   );
-}
+};
+
+export default MobileFooter;

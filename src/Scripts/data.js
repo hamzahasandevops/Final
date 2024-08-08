@@ -95,8 +95,14 @@ export const allData = [
 export const itemDetails = {
   1: {
     title: "Homeopathy",
-    description: "Details about Homeopathy",
+    description:
+      "Homeopathy is a system of alternative medicine founded on the principle of like cures like, where substances that induce symptoms in healthy individuals are used in highly diluted form to treat similar symptoms in sick patients. Remedies are individualized based on the totality of symptoms and the person's unique constitution, aiming to restore balance and stimulate the body's innate healing mechanisms. Despite debate over its scientific basis, homeopathy remains popular for treating various acute and chronic conditions, emphasizing safety due to its highly diluted nature and minimal risk of side effects.Homeopathy is characterized by its principle of using highly diluted substances, often to the point where no molecules of the original substance remain, yet it is believed that the essence or energy of the substance retains therapeutic properties. Practitioners of homeopathy, known as homeopaths, conduct thorough consultations to understand not only the physical symptoms but also the emotional and psychological aspects of a person's health. Remedies are chosen based on this comprehensive understanding, aiming to stimulate the body's innate healing mechanisms rather than simply suppressing symptoms. Despite ongoing debates about its scientific validity and efficacy, homeopathy maintains a loyal following among those seeking alternative or complementary approaches to health and wellness. Its gentle nature and individualized approach appeal to many who prefer a more holistic perspective on healthcare.",
     image: "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
+    banner: [
+      "https://t4.ftcdn.net/jpg/02/00/73/71/240_F_200737116_X9M3OxXezaroMWsFXbnOIXGJRLkq0vJN.jpg",
+      "https://t4.ftcdn.net/jpg/01/87/31/33/240_F_187313347_uMXAgil3uL3BwUg1hhu9PH815SaUoaGY.jpg",
+      "https://img.freepik.com/premium-vector/pharmacy-caduceus-icon-vector-medical-logo-use-holistic-medicine-rehabilitation-pharmacology-homeopathy-creative-symbol-composed-with-mortar-pestle_570429-36374.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+    ],
     images: [
       "https://static.oxinis.com/healthmug/image/asset/2882-pu.webp",
       "https://static.oxinis.com/healthmug/image/asset/2883-eb.webp",
@@ -123,6 +129,7 @@ export const itemDetails = {
         new_mrp: 135,
         quantity: 1,
         Discount: 10,
+        ml: [20, 30, 100, 1000],
       },
       {
         id: 21,
@@ -134,6 +141,7 @@ export const itemDetails = {
         new_mrp: 143,
         quantity: 1,
         Discount: 10,
+        ml: [20, 30, 100, 1000],
       },
       {
         id: 22,
@@ -145,6 +153,7 @@ export const itemDetails = {
         new_mrp: 118,
         quantity: 1,
         Discount: 10,
+        ml: [20, 30, 100, 1000],
       },
       {
         id: 23,
@@ -156,6 +165,7 @@ export const itemDetails = {
         new_mrp: 355,
         quantity: 1,
         Discount: 10,
+        ml: [20, 30, 100, 1000],
       },
       {
         id: 24,
@@ -167,6 +177,7 @@ export const itemDetails = {
         new_mrp: 656,
         quantity: 1,
         Discount: 10,
+        ml: [20, 30, 100, 1000],
       },
       {
         id: 25,
@@ -178,36 +189,22 @@ export const itemDetails = {
         new_mrp: 118,
         quantity: 1,
         Discount: 10,
-      },
-      {
-        id: 26,
-        title: "Garcinia combogia",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        offPrice: "10% OFF",
-        old_mrp: 766,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
-      },
-      {
-        id: 27,
-        title: "Garcinia combogia",
-        image:
-          "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-        offPrice: "10% OFF",
-        old_mrp: 766,
-        new_mrp: 118,
-        quantity: 1,
-        Discount: 10,
+        ml: [20, 30, 100, 1000],
       },
       // Add more products as needed
     ],
   },
   2: {
     title: "Ayurveda",
-    description: "Details about Ayurveda",
+    description:
+      "Ayurveda, originating from ancient India, is a holistic system of medicine that views health as a balance between the body, mind, and spirit. It focuses on promoting wellness through a personalized approach, considering each person's unique constitution (prakriti) and the interplay of the three doshas: Vata (air and space), Pitta (fire and water), and Kapha (earth and water).In Ayurvedic philosophy, health results from harmony within oneself and with the environment. Disease arises when this balance is disrupted, often due to factors like poor diet, lack of exercise, stress, or environmental conditions. Ayurvedic practices aim to restore balance through various methods including herbal remedies, dietary changes, yoga, meditation, detoxification (panchakarma), and lifestyle adjustments tailored to individual needs.Ayurveda categorizes substances and treatments based on their qualities (gunas) and tastes (rasas), aiming to bring opposing qualities into balance. For example, a person with a dominant Pitta constitution might be prescribed cooling herbs and foods to pacify excess heat and acidity.The holistic approach of Ayurveda extends beyond physical health to encompass mental, emotional, and spiritual well-being. It emphasizes prevention rather than just treatment of ailments, advocating a lifestyle that fosters longevity, vitality, and harmony with nature.",
+
     image: "https://static.oxinis.com/healthmug/image/asset/2277-nb.webp",
+    banner: [
+      "https://img.freepik.com/free-vector/flat-gradient-nature-concept-logotype_52683-13458.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+      "https://img.freepik.com/premium-vector/tech-logo_1056333-179.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+      "https://img.freepik.com/premium-vector/traditional-green-herbal-logo-design-vector-idea_855487-4.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+    ],
     images: [
       "https://static.oxinis.com/healthmug/image/asset/3714-dh.webp",
       "https://static.oxinis.com/healthmug/image/asset/3610-bp.webp",
@@ -273,7 +270,6 @@ export const itemDetails = {
         Discount: 10,
         ratings: 3,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       {
         id: 30,
@@ -286,7 +282,6 @@ export const itemDetails = {
         quantity: 1,
         Discount: 10,
         ratings: 5,
-        ml: [20, 30, 100, 1000],
         ml: [20, 30, 100, 1000],
       },
       {
@@ -301,7 +296,6 @@ export const itemDetails = {
         Discount: 10,
         ratings: 4,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       {
         id: 32,
@@ -314,7 +308,6 @@ export const itemDetails = {
         quantity: 1,
         Discount: 10,
         ratings: 4,
-        ml: [20, 30, 100, 1000],
         ml: [20, 30, 100, 1000],
       },
       {
@@ -329,7 +322,6 @@ export const itemDetails = {
         Discount: 10,
         ratings: 4,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       {
         id: 34,
@@ -342,7 +334,6 @@ export const itemDetails = {
         quantity: 1,
         Discount: 10,
         ratings: 4,
-        ml: [20, 30, 100, 1000],
         ml: [20, 30, 100, 1000],
       },
       {
@@ -357,7 +348,6 @@ export const itemDetails = {
         Discount: 10,
         ratings: 4,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       {
         id: 36,
@@ -370,7 +360,6 @@ export const itemDetails = {
         quantity: 1,
         Discount: 10,
         ratings: 4,
-        ml: [20, 30, 100, 1000],
         ml: [20, 30, 100, 1000],
       },
       {
@@ -385,7 +374,6 @@ export const itemDetails = {
         Discount: 10,
         ratings: 4,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       {
         id: 38,
@@ -398,7 +386,6 @@ export const itemDetails = {
         quantity: 1,
         Discount: 10,
         ratings: 4,
-        ml: [20, 30, 100, 1000],
         ml: [20, 30, 100, 1000],
       },
       {
@@ -413,7 +400,6 @@ export const itemDetails = {
         Discount: 10,
         ratings: 4,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       {
         id: 40,
@@ -427,15 +413,20 @@ export const itemDetails = {
         Discount: 10,
         ratings: 4,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
       // Add more products as needed
     ],
   },
   3: {
     title: "Unani",
-    description: "Details about Unani",
+    description:
+      "Unani medicine, also known as Yunani medicine, is a traditional system of medicine that originated in ancient Greece and was later adopted and developed by Arabs and Persians. It is based on the teachings of Greek physicians such as Hippocrates and Galen, combined with principles from traditional Arabic and Persian medicine.Unani medicine is founded on the concept of the four humors—blood, phlegm, yellow bile, and black bile—and emphasizes the balance of these bodily fluids as key to health. It also incorporates the notion of the four temperaments, linking physical health with psychological and emotional well-being.Practitioners of Unani medicine, known as Hakims, diagnose patients through careful observation of symptoms and pulse examination. Treatment typically involves herbal medicines, dietary adjustments, and lifestyle recommendations aimed at restoring the body's natural balance and promoting self-healing.Unani medicine places a strong emphasis on individualized care, taking into account a person's unique constitution, temperament, and environmental factors. It has been practiced for centuries in various parts of the world, particularly in South Asia and the Middle East, and continues to be valued by many for its holistic approach to health and disease prevention.",
     image: "https://static.oxinis.com/healthmug/image/asset/2387-gq.webp",
+    banner: [
+      "https://img.freepik.com/free-vector/flat-design-medical-pharmacy-symbol_23-2149542033.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+      "https://img.freepik.com/free-vector/gradient-hub-logo-template_23-2149845600.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+      "https://img.freepik.com/premium-vector/leaf-with-dna-logo-design-combination-vector-template_527431-1741.jpg?ga=GA1.2.1558841572.1712578859&semt=ais_hybrid",
+    ],
     images: [
       "https://static.oxinis.com/healthmug/image/asset/2388-mq.webp",
       "https://static.oxinis.com/healthmug/image/asset/2390-lw.webp",
@@ -514,51 +505,49 @@ export const itemDetails = {
           "https://th.bing.com/th?id=OIP.em4TcFlceBF0subfkXqomwHaGO&w=272&h=229&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
         Discount: 10,
         ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
-        ml: [20, 30, 100, 1000],
       },
     ],
   },
 };
 
-const itemData = [
-  {
-    id: 1,
-    mrp: 130,
-    img: [
-      "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-      "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-      "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    ],
-    title: "Breakfast",
-    author: "@bkristastucchio",
-    rows: 2,
-    cols: 2,
-    featured: true,
-  },
-  {
-    id: 2,
-    mrp: 123,
-    img: [
-      "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-      "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-      "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-    ],
-    title: "Burger",
-    author: "@rollelflex_graphy726",
-  },
-  {
-    id: 3,
-    mrp: 120,
-    img: [
-      "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-      "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-      "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-      "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-    ],
-    title: "Camera",
-    author: "@helloimnik",
-  },
-];
+// const itemData = [
+//   {
+//     id: 1,
+//     mrp: 130,
+//     img: [
+//       "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+//       "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+//       "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+//       "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+//     ],
+//     title: "Breakfast",
+//     author: "@bkristastucchio",
+//     rows: 2,
+//     cols: 2,
+//     featured: true,
+//   },
+//   {
+//     id: 2,
+//     mrp: 123,
+//     img: [
+//       "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+//       "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+//       "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+//       "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+//     ],
+//     title: "Burger",
+//     author: "@rollelflex_graphy726",
+//   },
+//   {
+//     id: 3,
+//     mrp: 120,
+//     img: [
+//       "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+//       "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
+//       "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+//       "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+//     ],
+//     title: "Camera",
+//     author: "@helloimnik",
+//   },
+// ];

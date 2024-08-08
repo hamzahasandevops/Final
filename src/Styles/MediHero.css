@@ -83,3 +83,36 @@
     color: inherit;
     /* Ensure the arrow color matches the button color */
 }
+
+
+
+
+
+
+@media (max-width: 568px) {
+
+
+    .slider-item {
+            flex: 0 0 auto;
+            width: calc(100% / 20);
+            /* Adjust to show 13 images at once */
+            box-sizing: border-box;
+            padding: 5px;
+            text-align: center;
+       
+        }
+}
+
+@media (max-width: 398px) {
+
+
+    .slider-item {
+        flex: 0 0 auto;
+        width: calc(100% / 25);
+        /* Adjust to show 13 images at once */
+        box-sizing: border-box;
+        padding: 5px;
+        text-align: center;
+
+    }
+}
